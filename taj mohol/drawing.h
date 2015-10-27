@@ -83,6 +83,8 @@ void drawFrontDoor()
 		p = getPoint(-132,0,50+i*85);
 		drawDownFacePrism(p,50,85,down,VIOLATE,EBONY);
 	}
+	//0 degree sides end
+	//90 degree sides start
 	glPushMatrix();
 	{
 		glTranslatef(224,0,0);
@@ -95,8 +97,35 @@ void drawFrontDoor()
 		glTranslatef(0,192,0);
 		draw90DegreeSideInOrigin();
 	}glPopMatrix();
+	//90 degree sides end
+	//back cover
+	p = getPoint(-82,5,50);
+	drawCube(p,206,1,255,GREEN,SOLID);
+}
+void drawArc()
+{
+	Point p;
+	GLdouble h;
+	double c1[] = {1,0,0,-25};
+	glClipPlane(GL_CLIP_PLANE0,c1);
+	glEnable(GL_CLIP_PLANE0);
+	double c2[] = {-1,0,0,65};
+	glClipPlane(GL_CLIP_PLANE1,c2);
+	glEnable(GL_CLIP_PLANE1);
+	for(int i = 1 ; i<=20 ;i++)
+	{
+		h = 10*log(i+3.0)-10*log(i+1.0);
+		p = getPoint(i,0,10*log(i*1.0));
+		drawCube(p,25,1,h,SKY_BLUE,SOLID);
+		
+		p = getPoint(65-i,0,10*log(i*1.0));
+		drawCube(p,25,1,h,SKY_BLUE,SOLID);
+	}
+	glDisable(GL_CLIP_PLANE0);
+	glDisable(GL_CLIP_PLANE1);
 }
 void drawFrontPanel()
 {
-	drawFrontDoor();
+	//drawFrontDoor();
+	drawArc();
 }

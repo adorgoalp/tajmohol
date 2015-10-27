@@ -5,6 +5,7 @@
 #include<glut.h>
 #include "camera.h"
 #include "listener.h"
+#include"light.h"
 #define GRID_SIZE 50
 void display(){
 	Point p;
@@ -31,12 +32,8 @@ void init(){
 	canDrawGrid = true;
 	//clear the screen
 	glClearColor(BLACK, 0);
-
-	/************************
-	/ set-up projection here
-	************************/
-	//load the PROJECTION matrix
-	glMatrixMode(GL_PROJECTION);
+	//lighting
+	enableLighting();
 	
 	//initialize the matrix
 	glLoadIdentity();

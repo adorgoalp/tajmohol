@@ -73,11 +73,11 @@ void moveRight()
 }
 void moveUp()
 {
-	cameraZ+= MOVE_STEP_SIZE*tanf(cameraAngleV);
+	cameraZ+= MOVE_STEP_SIZE*cosf(cameraAngleV);
 }
 void moveDown()
 {
-	cameraZ-= MOVE_STEP_SIZE*tanf(cameraAngleV);
+	cameraZ-= MOVE_STEP_SIZE*cosf(cameraAngleV);
 }
 void lookLeft()
 {

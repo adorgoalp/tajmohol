@@ -292,6 +292,20 @@ void drawLifeBoya(Point center,GLdouble radius,GLdouble thikness,int r,int g, in
 		}
 	}glPopMatrix();
 }
+void drawOctaLifeBoya(Point center,GLdouble radius,GLdouble thikness,int r,int g, int b)
+{
+	int mult = radius/20;
+	if(mult == 0)
+	{
+		mult = 1;
+	}
+	glPushMatrix();
+	{
+		glColor3ub(r,g,b);
+		glTranslatef(center.x,center.y,center.z);
+		glutSolidTorus(thikness,radius,8,8);
+	}glPopMatrix();
+}
 void clearDisplay()
 {
 	//clear the display

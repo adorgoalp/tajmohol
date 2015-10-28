@@ -359,4 +359,25 @@ void drawWalls()
 		glRotatef(-90,0,0,1);
 		drawFrontPanel();
 	}glPopMatrix();
+	//45 degree sides
+	glPushMatrix();
+	{
+		glTranslatef(725,1395,0);
+		glRotatef(135,0,0,1);
+		glScalef(1.1,1,1);
+		draw45DegreeGateSet();
+	}glPopMatrix();
+	glPushMatrix();
+	{
+		glTranslatef(-710,1385,0);
+		glRotatef(-135,0,0,1);
+		draw45DegreeGateSet();
+	}glPopMatrix();
+	//back panel
+	glPushMatrix();
+	{
+		glTranslatef(10,1350,0);
+		glRotatef(180,0,0,1);
+		drawFrontPanel();
+	}glPopMatrix();
 }

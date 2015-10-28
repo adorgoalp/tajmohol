@@ -12,7 +12,7 @@ void drawDownFacePrism(Point p, GLdouble length, GLdouble width, GLdouble down, 
 	t = getPoint(p.x+length-side,p.y,p.z+side);
 	drawCube(t,side,down,width-side*2,rb,gb,bb,SOLID);
 	t = getPoint(p.x+side,p.y+down,p.z+side);
-	drawCube(t,length-side*2,1,width-side*2,rf,gf,bf,SOLID);
+	drawCube(t,length-side*2,5,width-side*2,rf,gf,bf,SOLID);
 }
 void drawArc()
 {
@@ -43,9 +43,9 @@ void drawBox(Point p,GLdouble length, GLdouble height, GLdouble width, GLdouble 
 	q = getPoint(p.x,p.y,p.z+height-depth);
 	drawCube(q,length,width,depth,r,g,b,SOLID);
 	q = getPoint(p.x,p.y,p.z+depth);
-	drawCube(q,depth,width,height-depth*2,r,g,b,SOLID);
-	q = getPoint(p.x+length-depth,p.y,p.z+depth);
-	drawCube(q,depth,width,height-depth*2,r,g,b,SOLID);
+	drawCube(q,depth-4,width,height-depth*2,r,g,b,SOLID);
+	q = getPoint(p.x+length-depth+4,p.y,p.z+depth);
+	drawCube(q,depth-4,width,height-depth*2,r,g,b,SOLID);
 }
 void draw90DegreeSideInOrigin()
 {
@@ -133,8 +133,8 @@ void drawFrontDoor()
 	//90 degree sides end
 	//DOOR SIDE END
 	//back cover
-	p = getPoint(-82,5,50);
-	drawCube(p,206,1,255,GREEN,SOLID);
+	p = getPoint(-82,8,50);
+	drawCube(p,206,5,255,GREEN,SOLID);
 	//arc
 	glPushMatrix();{
 		glTranslatef(-190,-190,300);
@@ -142,17 +142,17 @@ void drawFrontDoor()
 		drawArc();
 	}glPopMatrix();
 	p = getPoint(-190,0,305);
-	drawCube(p,420,1,150,SILVER,SOLID);
+	drawCube(p,420,5,150,SILVER,SOLID);
 	//drawBox
 	p = getPoint(-215,-200,-25);
 	drawBox(p,470,505,200,25,VIOLATE);
 	//side gap
 	p = getPoint(-315,-190,-25);
-	drawCube(p,100,1,600,WOOD4,SOLID);
+	drawCube(p,100,5,600,WOOD4,SOLID);
 	p = getPoint(-215,-190,475);
-	drawCube(p,470,1,100,WOOD4,SOLID);
+	drawCube(p,470,5,100,WOOD4,SOLID);
 	p = getPoint(255,-190,-25);
-	drawCube(p,100,1,600,WOOD4,SOLID);
+	drawCube(p,100,5,600,WOOD4,SOLID);
 }
 void drawSmallDoorType1()
 {
@@ -198,17 +198,17 @@ void drawSmallDoorType1()
 		drawArc();
 	}glPopMatrix();
 	p = getPoint(-75,0,130);
-	drawCube(p,150,1,60,SKY_BLUE,SOLID);
+	drawCube(p,150,5,60,SKY_BLUE,SOLID);
 	//box
 	p = getPoint(-104,-60,-25);
 	drawBox(p,208,240,60,25,EARTH);
 	//side
 	p = getPoint(-144,-50,-25);
-	drawCube(p,40,1,280,GREEN,SOLID);
+	drawCube(p,40,5,280,GREEN,SOLID);
 	p = getPoint(104,-50,-25);
-	drawCube(p,40,1,280,GREEN,SOLID);
+	drawCube(p,40,5,280,GREEN,SOLID);
 	p = getPoint(-104,-50,215);
-	drawCube(p,208,1,40,GREEN,SOLID);
+	drawCube(p,208,5,40,GREEN,SOLID);
 }
 void drawPiller(Point center, GLdouble height, GLdouble radius,int r,int g,int b,int rr,int gr,int br)
 {
@@ -252,5 +252,111 @@ void drawFrontPanel()
 	glPushMatrix();{
 		glTranslatef(-470,-145,0);
 		drawSmallDoorSetType1WithPiller(true);
+	}glPopMatrix();
+}
+void draw45DegreeGate()
+{
+	GLdouble down = 3.0;
+	Point p;
+	//0 degree section
+	p = getPoint(-25,0,0);
+	drawDownFacePrism(p,50,90,down,MEDIUM_WOOD,LIGHT_WOOD);
+	p = getPoint(-25,0,90);
+	drawDownFacePrism(p,50,40,down,MEDIUM_WOOD,LIGHT_WOOD);
+	p = getPoint(-25,0,130);
+	drawCube(p,50,4,60,VIOLATE,SOLID);
+	//45 degree section
+	glPushMatrix();{
+		glTranslatef(25,0,0);
+		glRotatef(-45,0,0,1);
+		p = getPoint(0,0,0);
+		drawDownFacePrism(p,84,50,down,VIOLATE,GREEN);
+		p = getPoint(0,0,50);
+		drawDownFacePrism(p,84,80,down,VIOLATE,GREEN);
+		p = getPoint(0,0,130);
+		drawCube(p,84,4,50,WOOD4,SOLID);
+	}glPopMatrix();
+	glPushMatrix();{
+		glTranslatef(-84,-59,0);
+		glRotatef(45,0,0,1);
+		p = getPoint(0,0,0);
+		drawDownFacePrism(p,84,50,down,VIOLATE,GREEN);
+		p = getPoint(0,0,50);
+		drawDownFacePrism(p,84,80,down,VIOLATE,GREEN);
+		p = getPoint(0,0,130);
+		drawCube(p,84,4,50,WOOD4,SOLID);
+	}glPopMatrix();
+	//90 degree section
+	glPushMatrix();{
+		glTranslatef(84,-59,0);
+		glRotatef(-90,0,0,1);
+		p = getPoint(0,0,0);
+		drawDownFacePrism(p,20,50,down,EBONY,SKY_BLUE);
+		p = getPoint(0,0,50);
+		drawDownFacePrism(p,20,80,down,EBONY,SKY_BLUE);
+	}glPopMatrix();
+	glPushMatrix();{
+		glTranslatef(-84,-79,0);
+		glRotatef(90,0,0,1);
+		p = getPoint(0,0,0);
+		drawDownFacePrism(p,20,50,down,EBONY,SKY_BLUE);
+		p = getPoint(0,0,50);
+		drawDownFacePrism(p,20,80,down,EBONY,SKY_BLUE);
+	}glPopMatrix();
+	//arc
+	glPushMatrix();
+	{
+		glTranslatef(-90,-80,130);
+		glScalef(5.1,85,2.0);
+		drawArc();
+	}glPopMatrix();
+	//border
+	p = getPoint(-114,-85,-25);
+	drawBox(p,227,240,90,25,VIOLATE);
+	//side
+	p = getPoint(-154,-50,-25);
+	drawCube(p,40,5,280,GREEN,SOLID);
+	p = getPoint(114,-50,-25);
+	drawCube(p,40,5,280,GREEN,SOLID);
+	p = getPoint(-114,-50,215);
+	drawCube(p,228,5,40,GREEN,SOLID);
+}
+void draw45DegreeGateSet()
+{
+	draw45DegreeGate();
+	glPushMatrix();
+	{
+		glTranslatef(0,0,280);
+		draw45DegreeGate();
+	}glPopMatrix();
+}
+void drawWalls()
+{
+	drawFrontPanel();
+	//45 degree sides
+	glPushMatrix();
+	{
+		glTranslatef(730,-50,0);
+		glRotatef(45,0,0,1);
+		draw45DegreeGateSet();
+	}glPopMatrix();
+	glPushMatrix();
+	{
+		glTranslatef(-700,-40,0);
+		glRotatef(-45,0,0,1);
+		draw45DegreeGateSet();
+	}glPopMatrix();
+	//sides
+	glPushMatrix();
+	{
+		glTranslatef(685,655,0);
+		glRotatef(90,0,0,1);
+		drawFrontPanel();
+	}glPopMatrix();
+	glPushMatrix();
+	{
+		glTranslatef(-665,680,0);
+		glRotatef(-90,0,0,1);
+		drawFrontPanel();
 	}glPopMatrix();
 }

@@ -6,13 +6,13 @@
 #include "camera.h"
 #include "listener.h"
 #include"light.h"
-#define GRID_SIZE 50
+#define GRID_SIZE 100
 void display(){
 	Point p;
 	clearDisplay();
 	setupCamera();
 	//code here
-	drawFrontPanel();
+	drawWalls();
 	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }
@@ -36,6 +36,7 @@ void init(){
 	enableLighting();
 	
 	//initialize the matrix
+	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
 	//give PERSPECTIVE parameters

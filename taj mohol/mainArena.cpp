@@ -13,13 +13,14 @@ void display(){
 	setupCamera();
 	//code here
 	drawWalls();
+	drawRoof();
+	drawBase();
 	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }
 
 void animate(){
 	//codes for any changes in Camera
-
 	glutPostRedisplay();	//this will call the display AGAIN
 }
 
@@ -54,7 +55,7 @@ int main(int argc, char **argv){
 	glutInitWindowPosition(0, 0);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGB);	//Depth, Double buffer, RGB color
 
-	glutCreateWindow("Op");
+	glutCreateWindow("Taj mahal 1005003 1005027");
 
 	init();
 

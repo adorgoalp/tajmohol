@@ -3,8 +3,8 @@
 #include<math.h>
 #include<glut.h>
 #include "values.h"
-#define CAMERA_DISTANCE 1000
-#define MOVE_STEP_SIZE 10
+#define CAMERA_DISTANCE 2000
+#define MOVE_STEP_SIZE 30
 double cameraAngle;			
 double cameraAngleV;		
 double cameraRadius;
@@ -73,11 +73,11 @@ void moveRight()
 }
 void moveUp()
 {
-	cameraZ+= MOVE_STEP_SIZE*cosf(cameraAngleV);
+	cameraZ+= MOVE_STEP_SIZE;
 }
 void moveDown()
 {
-	cameraZ-= MOVE_STEP_SIZE*cosf(cameraAngleV);
+	cameraZ-= MOVE_STEP_SIZE;
 }
 void lookLeft()
 {

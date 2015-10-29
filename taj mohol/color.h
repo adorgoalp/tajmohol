@@ -17,3 +17,9 @@
 #define LIGHT_WOOD 235,199,158
 #define WOOD4 151,105,79
 #define VIOLATE 123,104,238
+#define YELLOW 255,255,0
+#define CYAN 0,255,255
+#define MAGENTA 255,0,255
+#define BLUE 0,128,192
+#define ORANGE 255,128,0
+#define NIGHT_BLUE 0,64,128

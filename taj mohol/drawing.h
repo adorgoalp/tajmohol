@@ -381,3 +381,119 @@ void drawWalls()
 		drawFrontPanel();
 	}glPopMatrix();
 }
+void drawRoof()
+{
+	Point p;
+	p = getPoint(-870,-200,530);
+	double c1[] = {1,1,0,820};
+	glClipPlane(GL_CLIP_PLANE0,c1);
+	double c2[] = {-1,1,0,860};
+	glClipPlane(GL_CLIP_PLANE1,c2);
+	double c3[] = {-1,-1,0,2200};
+	glClipPlane(GL_CLIP_PLANE2,c3);
+	double c4[] = {1,-1,0,2200};
+	glClipPlane(GL_CLIP_PLANE3,c4);
+
+	glEnable(GL_CLIP_PLANE0);
+	glEnable(GL_CLIP_PLANE1);
+	glEnable(GL_CLIP_PLANE2);
+	glEnable(GL_CLIP_PLANE3);
+	drawCube(p,1760,1750,10,BROWN,SOLID);
+	glDisable(GL_CLIP_PLANE0);
+	glDisable(GL_CLIP_PLANE1);
+	glDisable(GL_CLIP_PLANE2);
+	glDisable(GL_CLIP_PLANE3);
+}
+void drawBaseBasicUnit()
+{
+	GLdouble down = 4.0;
+	Point p = getPoint(0,0,0);
+	drawDownFacePrism(p,80,190,down,YELLOW,MAGENTA);
+	p = getPoint(27,0,90);
+	drawCube(p,28,down,45,YELLOW,SOLID);
+	p = getPoint(4,0,165);
+	drawCube(p,72,down,21,YELLOW,SOLID);
+	for(int i = 0 ; i < 5 ; i++)
+	{
+		p = getPoint(4,0,165-2*(i+1));
+		drawCube(p,36-i,down,2,YELLOW,SOLID);
+		p = getPoint(40+i,0,165-2*(i+1));
+		drawCube(p,36-i,down,2,YELLOW,SOLID);
+	}
+	for(int i = 0 ; i < 5 ; i++)
+	{
+		p = getPoint(4,0,155-2*(i+1));
+		drawCube(p,20-i,down,2,YELLOW,SOLID);
+		p = getPoint(56+i,0,155-2*(i+1));
+		drawCube(p,20-i,down,2,YELLOW,SOLID);
+	}
+	for(int i = 0 ; i < 5 ; i++)
+	{
+		p = getPoint(4,0,145-2*(i+1));
+		drawCube(p,5-i,down,2,YELLOW,SOLID);
+		p = getPoint(71+i,0,145-2*(i+1));
+		drawCube(p,5-i,down,2,YELLOW,SOLID);
+	}
+	p = getPoint(0,0,190);
+	drawDownFacePrism(p,80,35,down,CYAN,MAGENTA);
+	p = getPoint(0,-10,225);
+	drawCube(p,80,16,10,GREEN,SOLID);
+
+	p = getPoint(3,-4,235);
+	drawCube(p,6,10,32,YELLOW,SOLID);
+	p = getPoint(71,-4,235);
+	drawCube(p,6,10,32,YELLOW,SOLID);
+
+	p = getPoint(0,0,235);
+	drawCube(p,3,2,32,BLUE,SOLID);
+	p = getPoint(77,0,235);
+	drawCube(p,3,2,32,BLUE,SOLID);
+
+	p = getPoint(9,0,235);
+	drawDownFacePrism(p,62,32,down,WOOD4,LIGHT_WOOD);
+}
+
+void drawBase()
+{
+	glPushMatrix();
+	{
+		glTranslatef(-1700,-850,-260);
+		for(int i = 0 ; i < 40 ;i++)
+		{
+			glTranslatef(80,0,0);
+			drawBaseBasicUnit();
+		}
+	}glPopMatrix();
+	glPushMatrix();
+	{
+		glTranslatef(-1625,2430,-260);
+		glRotatef(-90,0,0,1);
+		for(int i = 0 ; i < 40 ;i++)
+		{
+			glTranslatef(80,0,0);
+			drawBaseBasicUnit();
+		}
+	}glPopMatrix();
+	glPushMatrix();
+	{
+		glTranslatef(1580,-930,-260);
+		glRotatef(90,0,0,1);
+		for(int i = 0 ; i < 40 ;i++)
+		{
+			glTranslatef(80,0,0);
+			drawBaseBasicUnit();
+		}
+	}glPopMatrix();
+	glPushMatrix();
+	{
+		glTranslatef(1660,2350,-260);
+		glRotatef(180,0,0,1);
+		for(int i = 0 ; i < 40 ;i++)
+		{
+			glTranslatef(80,0,0);
+			drawBaseBasicUnit();
+		}
+	}glPopMatrix();
+	Point p = getPoint(-1620,-850,-35);
+	drawCube(p,3200,3200,10,ORANGE,SOLID);
+}

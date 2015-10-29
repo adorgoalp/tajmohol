@@ -136,7 +136,7 @@ void drawOctaCylinder(Point baseCenter, GLdouble radiusBase,GLdouble radiusTop,G
 {
 	glPushMatrix();
 	{
-				glColor3ub(r,g,b);
+		glColor3ub(r,g,b);
 		glTranslatef(baseCenter.x,baseCenter.y,baseCenter.z);
 		GLUquadricObj *quadratic;
 		quadratic = gluNewQuadric();

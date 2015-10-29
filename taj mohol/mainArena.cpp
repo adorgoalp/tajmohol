@@ -8,13 +8,13 @@
 #include"light.h"
 #define GRID_SIZE 100
 void display(){
-	Point p;
 	clearDisplay();
 	setupCamera();
 	//code here
-	drawWalls();
-	drawRoof();
-	drawBase();
+	//drawWalls();
+	//drawRoof();
+	//drawBase();
+	drawSmallDome();
 	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }

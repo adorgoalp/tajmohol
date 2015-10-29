@@ -14,10 +14,7 @@ void display(){
 	drawWalls();
 	drawRoof();
 	drawBase();
-	//drawSmallDome();
-	//drawSmallDomeType2();
-	//drawHeadOfPiller();
-	drawBigDome();
+	drawDomes();
 	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }
@@ -37,6 +34,7 @@ void init(){
 	//clear the screen
 	glClearColor(BLACK, 0);
 	//lighting
+	
 	enableLighting();
 	
 	//initialize the matrix

@@ -210,6 +210,30 @@ void drawSmallDoorType1()
 	p = getPoint(-104,-50,215);
 	drawCube(p,208,5,40,GREEN,SOLID);
 }
+void drawHeadOfPiller()
+{
+	GLUquadricObj *quadratic;
+	quadratic = gluNewQuadric();
+	gluCylinder(quadratic,12,24,32,8,3);	
+	glPushMatrix();
+	{
+		glTranslatef(0,0,32);
+		double c[] ={0,0,1,0};
+		glClipPlane(GL_CLIP_PLANE0,c);
+		glEnable(GL_CLIP_PLANE0);
+		glutSolidSphere(24,20,20);
+		glDisable(GL_CLIP_PLANE0);
+	}glPopMatrix();
+	Point p = getPoint(0,0,50);
+	drawCone(p,16,10,ORANGE,SOLID);
+	p = getPoint(0,0,65);
+	drawSphere(p,5,YELLOW,SOLID);
+	
+	p = getPoint(0,0,80);
+	drawSphere(p,10,YELLOW,SOLID);
+	p = getPoint(0,0,85);
+	drawCylinder(p,5,0,15,ORANGE,OPEN);
+}
 void drawPiller(Point center, GLdouble height, GLdouble radius,int r,int g,int b,int rr,int gr,int br)
 {
 	Point p;
@@ -219,6 +243,11 @@ void drawPiller(Point center, GLdouble height, GLdouble radius,int r,int g,int b
 		p = getPoint(center.x,center.y,center.z+i);
 		drawOctaLifeBoya(p,radius,10,rr,gr,br);
 	}
+	glPushMatrix();
+	{
+		glTranslatef(center.x,center.y,center.z+height);
+		drawHeadOfPiller();
+	}glPopMatrix();
 }
 void drawSmallDoorSetType1WithPiller(bool isLeft)
 {
@@ -662,42 +691,11 @@ void drawSmallDomeType2()
 	p = getPoint(0,0,500);
 	drawCone(p,5,10,YELLOW,SOLID);
 }
-void drawHeadOfPiller()
-{
-	GLUquadricObj *quadratic;
-	quadratic = gluNewQuadric();
-	gluCylinder(quadratic,12,24,32,8,3);	
-	glPushMatrix();
-	{
-		glTranslatef(0,0,32);
-		double c[] ={0,0,1,0};
-		glClipPlane(GL_CLIP_PLANE0,c);
-		glEnable(GL_CLIP_PLANE0);
-		glutSolidSphere(24,20,20);
-		glDisable(GL_CLIP_PLANE0);
-	}glPopMatrix();
-	Point p = getPoint(0,0,50);
-	drawCone(p,16,10,ORANGE,SOLID);
-	p = getPoint(0,0,65);
-	drawSphere(p,5,YELLOW,SOLID);
-	
-	p = getPoint(0,0,80);
-	drawSphere(p,10,YELLOW,SOLID);
-	p = getPoint(0,0,85);
-	drawCylinder(p,5,0,15,ORANGE,OPEN);
-}
+
 void drawBigDome()
 {
 	GLUquadric *q;
 	q = gluNewQuadric();
-	/*Point p = getPoint(-50,600,540);
-	drawCylinder(p,500,500,100,ORANGE,SOLID);
-	p = getPoint(-50,600,640);
-	drawCylinder(p,480,480,100,CYAN,OPEN);
-	p = getPoint(-50,600,740);
-	drawCylinder(p,480,480,50,GREEN,SOLID);
-	p = getPoint(-50,600,790);
-	drawLifeBoya(p,480,20,MAGENTA,XY,SOLID);*/
 	glPushMatrix();
 	{
 		glColor3ub(ORANGE);
@@ -715,5 +713,32 @@ void drawBigDome()
 		glColor3ub(YELLOW);
 		glTranslatef(0,0,180);
 		gluSphere(q,500,30,30);
+		glColor3ub(ORANGE);
+		glTranslatef(0,0,490);
+		gluCylinder(q,100,0,50,15,1);
+		glColor3ub(YELLOW);
+		glTranslatef(0,0,75);
+		gluSphere(q,30,10,10);
+		glTranslatef(0,0,85);
+		gluSphere(q,60,10,10);
+		glTranslatef(0,0,85);
+		gluSphere(q,30,10,10);
+		glTranslatef(0,0,15);
+		gluCylinder(q,15,0,100,15,1);
+	}glPopMatrix();
+}
+void drawDomes()
+{
+	drawBigDome();
+	glPushMatrix();
+	{
+		glTranslatef(-580,80,555);
+		drawSmallDome();
+		glTranslatef(0,1200,0);
+		drawSmallDome();
+		glTranslatef(1200,0,0);
+		drawSmallDome();
+		glTranslatef(0,-1200,0);
+		drawSmallDome();
 	}glPopMatrix();
 }

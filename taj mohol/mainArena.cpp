@@ -15,6 +15,7 @@ void display(){
 	//drawRoof();
 	//drawBase();
 	drawSmallDome();
+	//drawSmallDomeType2();
 	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }

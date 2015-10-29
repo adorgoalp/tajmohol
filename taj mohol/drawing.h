@@ -555,11 +555,104 @@ void drawSmallDome()
 	}glPopMatrix();
 	//gombuj
 	Point p = getPoint(0,0,270);
+	double c[] = {0,0,1,-270};
+	glClipPlane(GL_CLIP_PLANE0,c);
+	glEnable(GL_CLIP_PLANE0);
 	drawSphere(p,120,YELLOW,SOLID);
+	glDisable(GL_CLIP_PLANE0);
+
 	p = getPoint(0,0,380);
 	drawCone(p,50,30,ORANGE,SOLID);
 	p = getPoint(0,0,420);
 	drawSphere(p,10,YELLOW,SOLID);
+	p = getPoint(0,0,450);
+	drawSphere(p,20,YELLOW,SOLID);
+	p = getPoint(0,0,480);
+	drawSphere(p,10,YELLOW,SOLID);
+	p = getPoint(0,0,485);
+	drawCylinder(p,5,5,15,ORANGE,SOLID);
+	p = getPoint(0,0,500);
+	drawCone(p,5,10,YELLOW,SOLID);
+}
+void drawSmallDomeType2BasicUnit()
+{
+	Point p;
+	double y = -155;
+	p = getPoint(-69,y,0);
+	drawCube(p,15,15,45,ORANGE,SOLID);
+	drawCube(p,130,15,30,ORANGE,SOLID);
+	p = getPoint(-69+7,y+7,45);
+	drawCylinder(p,7,7,140,VIOLATE,SOLID);
+
+	p = getPoint(-65,y,185);
+	drawCube(p,15,15,45,BLUE,SOLID);
+
+	p = getPoint(-65,y,230);
+	drawCube(p,130,15,40,ORANGE,SOLID);
+
+	p = getPoint(50,y,185);
+	drawCube(p,15,15,45,BLUE,SOLID);
+
+	glPushMatrix();
+	{
+		glTranslatef(-50,y,185);
+		glScalef(2.9,15,1.5);
+		drawArc();
+	}glPopMatrix();
+	
+}
+void drawSmallDomeType2()
+{
+	glPushMatrix();
+	{
+		for(int i = 0 ; i < 8 ;i++)
+		{
+			glRotatef(45,0,0,1);
+			drawSmallDomeType2BasicUnit();
+		}
+	}glPopMatrix();
+	//base
+	glColor3ub(ORANGE);
+	GLUquadricObj *quadratic;
+	quadratic = gluNewQuadric();
+	glPushMatrix();
+	{
+		glRotatef(22.5,0,0,1);
+		glPushMatrix();
+		{
+			glTranslatef(0,0,-15);
+			gluCylinder(quadratic,170,170,15,8,1);	
+		}glPopMatrix();
+		gluDisk(quadratic,0,170,8,8);
+	}glPopMatrix();
+	glPushMatrix();
+	{
+		glRotatef(22.5,0,0,1);
+		glPushMatrix();
+		{
+		glTranslatef(0,0,246);
+		gluDisk(quadratic,0,200,8,1);
+		}glPopMatrix();
+		glPushMatrix();
+		{
+			glTranslatef(0,0,270);
+			gluDisk(quadratic,0,170,8,1);
+		}glPopMatrix();
+	}glPopMatrix();
+	//gombuj
+
+	Point p = getPoint(0,0,270);
+	double c[] = {0,0,1,-270};
+	glClipPlane(GL_CLIP_PLANE0,c);
+	glEnable(GL_CLIP_PLANE0);
+	drawSphere(p,120,YELLOW,SOLID);
+	glDisable(GL_CLIP_PLANE0);
+
+	p = getPoint(0,0,380);
+	drawCone(p,50,30,ORANGE,SOLID);
+	p = getPoint(0,0,420);
+	drawSphere(p,10,YELLOW,SOLID);
+	
 	p = getPoint(0,0,450);
 	drawSphere(p,20,YELLOW,SOLID);
 	p = getPoint(0,0,480);

@@ -11,10 +11,11 @@ void display(){
 	clearDisplay();
 	setupCamera();
 	//code here
-	drawWalls();
-	drawRoof();
+	//drawWalls();
+	//drawRoof();
 	drawBase();
-	drawDomes();
+	//drawDomes();
+	drawFloors();
 	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }

@@ -742,3 +742,17 @@ void drawDomes()
 		drawSmallDome();
 	}glPopMatrix();
 }
+void drawFloors()
+{
+	Point p;
+	p = getPoint(-2000,-1300,-270);
+	drawCube(p,4400,4400,10,WHITE,SOLID);
+	p = getPoint(-2000,-1850,-270);
+	drawCube(p,4400,550,10,LIGHT_BRICK,SOLID);
+	p = getPoint(-2000,-4650,-270);
+	drawCube(p,4400,2350,10,LIGHT_BRICK,SOLID);
+	p = getPoint(-2000,-2300,-270);
+	drawCube(p,1985,450,10,LIGHT_BRICK,SOLID);
+	p = getPoint(435,-2300,-270);
+	drawCube(p,1985,450,10,LIGHT_BRICK,SOLID);
+}

@@ -745,14 +745,48 @@ void drawDomes()
 void drawFloors()
 {
 	Point p;
-	p = getPoint(-2000,-1300,-270);
-	drawCube(p,4400,4400,10,WHITE,SOLID);
-	p = getPoint(-2000,-1850,-270);
-	drawCube(p,4400,550,10,LIGHT_BRICK,SOLID);
-	p = getPoint(-2000,-4650,-270);
-	drawCube(p,4400,2350,10,LIGHT_BRICK,SOLID);
-	p = getPoint(-2000,-2300,-270);
-	drawCube(p,1985,450,10,LIGHT_BRICK,SOLID);
-	p = getPoint(435,-2300,-270);
-	drawCube(p,1985,450,10,LIGHT_BRICK,SOLID);
+	p = getPoint(-2000,-1300,-285);
+	drawCube(p,4400,4400,25,WHITE,SOLID);
+	//left side
+	p = getPoint(-2000,-1850,-285);
+	drawCube(p,4400,550,25,LIGHT_BRICK,SOLID);
+	p = getPoint(-2000,-4650,-285);
+	drawCube(p,4400,2350,25,LIGHT_BRICK,SOLID);
+	p = getPoint(-2000,-2300,-285);
+	drawCube(p,1985,450,25,LIGHT_BRICK,SOLID);
+	p = getPoint(435,-2300,-285);
+	drawCube(p,1985,450,25,LIGHT_BRICK,SOLID);
+	//other side
+	p = getPoint(-2000,3100,-285);
+	drawCube(p,4400,550,25,LIGHT_BRICK,SOLID);
+	p = getPoint(-2000,4100,-285);
+	drawCube(p,4400,2350,25,LIGHT_BRICK,SOLID);
+	p = getPoint(-2000,3650,-285);
+	drawCube(p,1985,450,25,LIGHT_BRICK,SOLID);
+	p = getPoint(435,3650,-285);
+	drawCube(p,1985,450,25,LIGHT_BRICK,SOLID);
+}
+void drawSmallBuildingBigDoor()
+{
+	Point p;
+	p = getPoint(-260,0,-25);
+	drawBox(p,520,700,200,25,DEEP_BRICK);
+	glPushMatrix();
+	{
+		glTranslatef(-245,0,280);
+		glScalef(14,200,12);
+		drawArc();
+	}glPopMatrix();
+	p = getPoint(-260,200,-25);
+	drawCube(p,520,25,700,MEDIUM_BRICK,SOLID);
+	p = getPoint(-400,25,-25);
+	drawCube(p,140,25,840,MEDIUM_BRICK,SOLID);
+	p = getPoint(260,25,-25);
+	drawCube(p,140,25,840,MEDIUM_BRICK,SOLID);
+	p = getPoint(-260,25,675);
+	drawCube(p,520,25,140,MEDIUM_BRICK,SOLID);
+}
+void drawSmallBuilding()
+{
+	drawSmallBuildingBigDoor();
 }

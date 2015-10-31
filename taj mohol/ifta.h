@@ -239,7 +239,14 @@ void drawCube(Point bottomLeftFront,GLdouble length,GLdouble width, GLdouble hei
 		{
 			glutWireCube(1);
 		}
-		glEnd();
+	}glPopMatrix();
+}
+void drawCube( GLdouble length,GLdouble width, GLdouble height)
+{
+	glPushMatrix();
+	{
+		glScalef(length,width,height);
+		glutSolidCube(1);
 	}glPopMatrix();
 }
 
@@ -312,9 +319,5 @@ void clearDisplay()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(BLACK, 0);	//color black
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-}
-void drawCube(GLUquadric *q)
-{
 
 }

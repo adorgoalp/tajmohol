@@ -13,9 +13,10 @@ void display(){
 	//code here
 	//drawWalls();
 	//drawRoof();
-	drawBase();
+	//drawBase();
 	//drawDomes();
-	drawFloors();
+	//drawFloors();
+	drawSmallBuilding();
 	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }

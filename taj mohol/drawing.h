@@ -28,10 +28,10 @@ void drawArc()
 	{
 		h = 10*log(i+3.0)-10*log(i+1.0);
 		p = getPoint(i-25,0,10*log(i*1.0));
-		drawCube(p,25,1,h,MEDIUM_CRREAM,SOLID);
+		drawCube(p,25,1,h,MEDIUM_CREAM,SOLID);
 		
 		p = getPoint(35-i,0,10*log(i*1.0));
-		drawCube(p,25,1,h,MEDIUM_CRREAM,SOLID);
+		drawCube(p,25,1,h,MEDIUM_CREAM,SOLID);
 	}
 	glDisable(GL_CLIP_PLANE0);
 	glDisable(GL_CLIP_PLANE1);
@@ -55,13 +55,13 @@ void draw90DegreeSideInOrigin()
 	{
 		glRotatef(-90,0,0,1);
 		p = getPoint(0,0,0);
-		drawDownFacePrism(p,192,50,down,VIOLATE,EBONY);
+		drawDownFacePrism(p,192,50,down,DEEP_CRREAM,LIGHT_CREAM);
 		for(int i = 0 ; i < 3 ; i++)
 		{
 			for(int j = 0 ; j < 3 ;j ++)
 			{
 				p = getPoint(0+j*64,0,50+i*84);
-				drawDownFacePrism(p,64,85,down,LIGHT_WOOD,MEDIUM_WOOD);
+				drawDownFacePrism(p,64,85,down,LIGHT_CREAM,DEEP_CRREAM);
 			}
 		}
 	}glPopMatrix();
@@ -73,48 +73,48 @@ void drawFrontDoor()
 	//MIDDLE DOOR START
 	//bottom row
 	p = getPoint(0,0,0);
-	drawDownFacePrism(p,43,70,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,43,70,down,LIGHT_CREAM,DEEP_CRREAM);
 	p = getPoint(43,0,0);
-	drawDownFacePrism(p,33,57,down,BLACKEN_SILVER,VIOLATE);
+	drawDownFacePrism(p,33,57,down,LIGHT_CREAM,DEEP_CRREAM);
 	p = getPoint(-33,0,0);
-	drawDownFacePrism(p,33,57,down,BLACKEN_SILVER,VIOLATE);
+	drawDownFacePrism(p,33,57,down,LIGHT_CREAM,DEEP_CRREAM);
 	//middle row
 	p = getPoint(0,0,70);
-	drawDownFacePrism(p,43,76,down,BLACKEN_SILVER,VIOLATE);
+	drawDownFacePrism(p,43,76,down,LIGHT_CREAM,DEEP_CRREAM);
 	p = getPoint(43,0,57);
-	drawDownFacePrism(p,33,70,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,33,70,down,DEEP_CRREAM,DEEP_CRREAM);
 	p = getPoint(-33,0,57);
-	drawDownFacePrism(p,33,70,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,33,70,down,DEEP_CRREAM,DEEP_CRREAM);
 	//top row
 	p = getPoint(0,0,146);
-	drawDownFacePrism(p,43,70,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,43,70,down,DEEP_CRREAM,DEEP_CRREAM);
 	p = getPoint(43,0,127);
-	drawDownFacePrism(p,33,57,down,BLACKEN_SILVER,VIOLATE);
+	drawDownFacePrism(p,33,57,down,LIGHT_CREAM,DEEP_CRREAM);
 	p = getPoint(-33,0,127);
-	drawDownFacePrism(p,33,57,down,BLACKEN_SILVER,VIOLATE);
+	drawDownFacePrism(p,33,57,down,LIGHT_CREAM,DEEP_CRREAM);
 	//boundary
 	p = getPoint(-41,0,-8);
-	drawDownFacePrism(p,125,270,down+1,EBONY,WOOD4);
+	drawDownFacePrism(p,125,270,down+1,LIGHT_YELLOW,LIGHT_CREAM);
 	p = getPoint(-33,0,232);
-	drawCube(p,109,4,8,VIOLATE,SOLID);
+	drawCube(p,109,4,8,LIGHT_YELLOW,SOLID);
 	//MIDDLE DOOR END
 	//DOOR SIDE START
 	// 0 degree sides  START
 	p = getPoint(84,0,0);
-	drawDownFacePrism(p,140,50,down,VIOLATE,EBONY);
+	drawDownFacePrism(p,140,50,down,LIGHT_YELLOW,LIGHT_CREAM);
 	p = getPoint(-182,0,0);
-	drawDownFacePrism(p,140,50,down,VIOLATE,EBONY);
+	drawDownFacePrism(p,140,50,down,LIGHT_YELLOW,LIGHT_CREAM);
 	for(int i = 0 ; i < 3;i++)
 	{
 		p = getPoint(124,0,50+i*85);
-		drawDownFacePrism(p,50,85,down,VIOLATE,EBONY);
+		drawDownFacePrism(p,50,85,down,LIGHT_YELLOW,LIGHT_CREAM);
 		p = getPoint(174,0,50+i*85);
-		drawDownFacePrism(p,50,85,down,VIOLATE,EBONY);
+		drawDownFacePrism(p,50,85,down,LIGHT_YELLOW,LIGHT_CREAM);
 
 		p = getPoint(-182,0,50+i*85);
-		drawDownFacePrism(p,50,85,down,VIOLATE,EBONY);
+		drawDownFacePrism(p,50,85,down,LIGHT_YELLOW,LIGHT_CREAM);
 		p = getPoint(-132,0,50+i*85);
-		drawDownFacePrism(p,50,85,down,VIOLATE,EBONY);
+		drawDownFacePrism(p,50,85,down,LIGHT_YELLOW,LIGHT_CREAM);
 	}
 	//0 degree sides end
 	//90 degree sides start
@@ -134,7 +134,7 @@ void drawFrontDoor()
 	//DOOR SIDE END
 	//back cover
 	p = getPoint(-82,8,50);
-	drawCube(p,206,5,255,GREEN,SOLID);
+	drawCube(p,206,5,255,LIGHT_CREAM,SOLID);
 	//arc
 	glPushMatrix();{
 		glTranslatef(-190,-190,300);
@@ -145,14 +145,14 @@ void drawFrontDoor()
 	drawCube(p,420,5,150,SILVER,SOLID);
 	//drawBox
 	p = getPoint(-215,-200,-25);
-	drawBox(p,470,505,200,25,VIOLATE);
+	drawBox(p,470,505,200,25,LIGHT_YELLOW);
 	//side gap
 	p = getPoint(-315,-190,-25);
-	drawCube(p,100,5,600,WOOD4,SOLID);
+	drawCube(p,100,5,600,SILVER,SOLID);
 	p = getPoint(-215,-190,475);
-	drawCube(p,470,5,100,WOOD4,SOLID);
+	drawCube(p,470,5,100,SILVER,SOLID);
 	p = getPoint(255,-190,-25);
-	drawCube(p,100,5,600,WOOD4,SOLID);
+	drawCube(p,100,5,600,SILVER,SOLID);
 }
 void drawSmallDoorType1()
 {
@@ -160,35 +160,35 @@ void drawSmallDoorType1()
 	Point p;
 	//0 degree part
 	p = getPoint(-25,0,0);
-	drawDownFacePrism(p,50,90,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,50,90,down,DEEP_CRREAM,LIGHT_CREAM);
 	p = getPoint(-25,0,90);
-	drawDownFacePrism(p,50,40,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,50,40,down,DEEP_CRREAM,LIGHT_CREAM);
 	p = getPoint(25,0,0);
-	drawDownFacePrism(p,50,60,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,50,60,down,DEEP_CRREAM,LIGHT_CREAM);
 	p = getPoint(25,0,60);
-	drawDownFacePrism(p,50,70,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,50,70,down,DEEP_CRREAM,LIGHT_CREAM);
 	p = getPoint(-75,0,0);
-	drawDownFacePrism(p,50,60,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,50,60,down,DEEP_CRREAM,LIGHT_CREAM);
 	p = getPoint(-75,0,60);
-	drawDownFacePrism(p,50,70,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,50,70,down,DEEP_CRREAM,LIGHT_CREAM);
 	//90 degree part
 	glPushMatrix();
 	{
 		glTranslatef(75,0,0);
 		glRotatef(-90,0,0,1);
 		p = getPoint(0,0,0);
-		drawDownFacePrism(p,50,60,down,MEDIUM_WOOD,LIGHT_WOOD);
+		drawDownFacePrism(p,50,60,down,DEEP_CRREAM,LIGHT_CREAM);
 		p = getPoint(0,0,60);
-		drawDownFacePrism(p,50,70,down,MEDIUM_WOOD,LIGHT_WOOD);
+		drawDownFacePrism(p,50,70,down,DEEP_CRREAM,LIGHT_CREAM);
 	}glPopMatrix();
 	glPushMatrix();
 	{
 		glTranslatef(-75,0,0);
 		glRotatef(90,0,0,1);
 		p = getPoint(-50,0,0);
-		drawDownFacePrism(p,50,60,down,MEDIUM_WOOD,LIGHT_WOOD);
+		drawDownFacePrism(p,50,60,down,DEEP_CRREAM,LIGHT_CREAM);
 		p = getPoint(-50,0,60);
-		drawDownFacePrism(p,50,70,down,MEDIUM_WOOD,LIGHT_WOOD);
+		drawDownFacePrism(p,50,70,down,DEEP_CRREAM,LIGHT_CREAM);
 	}glPopMatrix();
 	//arc
 	glPushMatrix();
@@ -198,17 +198,17 @@ void drawSmallDoorType1()
 		drawArc();
 	}glPopMatrix();
 	p = getPoint(-75,0,130);
-	drawCube(p,150,5,60,SKY_BLUE,SOLID);
+	drawCube(p,150,5,60,LIGHT_CREAM,SOLID);
 	//box
 	p = getPoint(-104,-60,-25);
-	drawBox(p,208,240,60,25,EARTH);
+	drawBox(p,208,240,60,25,LIGHT_YELLOW);
 	//side
 	p = getPoint(-144,-50,-25);
-	drawCube(p,40,5,280,GREEN,SOLID);
+	drawCube(p,40,5,280,SILVER,SOLID);
 	p = getPoint(104,-50,-25);
-	drawCube(p,40,5,280,GREEN,SOLID);
+	drawCube(p,40,5,280,SILVER,SOLID);
 	p = getPoint(-104,-50,215);
-	drawCube(p,208,5,40,GREEN,SOLID);
+	drawCube(p,208,5,40,SILVER,SOLID);
 }
 void drawHeadOfPiller()
 {
@@ -260,15 +260,15 @@ void drawSmallDoorSetType1WithPiller(bool isLeft)
 	if(isLeft)
 	{
 		Point p = getPoint(-152,-50,-25);
-		drawPiller(p,700,12,SKY_BLUE,VIOLATE);
+		drawPiller(p,700,12,BLACKEN_SILVER,LIGHT_YELLOW);
 		p = getPoint(144,-50,-25);
-		drawPiller(p,900,12,SKY_BLUE,VIOLATE);
+		drawPiller(p,900,12,BLACKEN_SILVER,LIGHT_YELLOW);
 	}else
 	{
 		Point p = getPoint(-152,-50,-25);
-		drawPiller(p,900,12,SKY_BLUE,VIOLATE);
+		drawPiller(p,900,12,BLACKEN_SILVER,LIGHT_YELLOW);
 		p = getPoint(144,-50,-25);
-		drawPiller(p,700,12,SKY_BLUE,VIOLATE);
+		drawPiller(p,700,12,BLACKEN_SILVER,LIGHT_YELLOW);
 	}
 }
 void drawFrontPanel()
@@ -289,48 +289,48 @@ void draw45DegreeGate()
 	Point p;
 	//0 degree section
 	p = getPoint(-25,0,0);
-	drawDownFacePrism(p,50,90,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,50,90,down,DEEP_CRREAM,LIGHT_CREAM);
 	p = getPoint(-25,0,90);
-	drawDownFacePrism(p,50,40,down,MEDIUM_WOOD,LIGHT_WOOD);
+	drawDownFacePrism(p,50,40,down,DEEP_CRREAM,LIGHT_CREAM);
 	p = getPoint(-25,0,130);
-	drawCube(p,50,4,60,VIOLATE,SOLID);
+	drawCube(p,50,4,60,SILVER,SOLID);
 	//45 degree section
 	glPushMatrix();{
 		glTranslatef(25,0,0);
 		glRotatef(-45,0,0,1);
 		p = getPoint(0,0,0);
-		drawDownFacePrism(p,84,50,down,VIOLATE,GREEN);
+		drawDownFacePrism(p,84,50,down,LIGHT_YELLOW,LIGHT_CREAM);
 		p = getPoint(0,0,50);
-		drawDownFacePrism(p,84,80,down,VIOLATE,GREEN);
+		drawDownFacePrism(p,84,80,down,LIGHT_YELLOW,LIGHT_CREAM);
 		p = getPoint(0,0,130);
-		drawCube(p,84,4,50,WOOD4,SOLID);
+		drawCube(p,84,4,50,SILVER,SOLID);
 	}glPopMatrix();
 	glPushMatrix();{
 		glTranslatef(-84,-59,0);
 		glRotatef(45,0,0,1);
 		p = getPoint(0,0,0);
-		drawDownFacePrism(p,84,50,down,VIOLATE,GREEN);
+		drawDownFacePrism(p,84,50,down,LIGHT_YELLOW,LIGHT_CREAM);
 		p = getPoint(0,0,50);
-		drawDownFacePrism(p,84,80,down,VIOLATE,GREEN);
+		drawDownFacePrism(p,84,80,down,LIGHT_YELLOW,LIGHT_CREAM);
 		p = getPoint(0,0,130);
-		drawCube(p,84,4,50,WOOD4,SOLID);
+		drawCube(p,84,4,50,SILVER,SOLID);
 	}glPopMatrix();
 	//90 degree section
 	glPushMatrix();{
 		glTranslatef(84,-59,0);
 		glRotatef(-90,0,0,1);
 		p = getPoint(0,0,0);
-		drawDownFacePrism(p,20,50,down,EBONY,SKY_BLUE);
+		drawDownFacePrism(p,20,50,down,LIGHT_YELLOW,LIGHT_CREAM);
 		p = getPoint(0,0,50);
-		drawDownFacePrism(p,20,80,down,EBONY,SKY_BLUE);
+		drawDownFacePrism(p,20,80,down,LIGHT_YELLOW,LIGHT_CREAM);
 	}glPopMatrix();
 	glPushMatrix();{
 		glTranslatef(-84,-79,0);
 		glRotatef(90,0,0,1);
 		p = getPoint(0,0,0);
-		drawDownFacePrism(p,20,50,down,EBONY,SKY_BLUE);
+		drawDownFacePrism(p,20,50,down,LIGHT_YELLOW,LIGHT_CREAM);
 		p = getPoint(0,0,50);
-		drawDownFacePrism(p,20,80,down,EBONY,SKY_BLUE);
+		drawDownFacePrism(p,20,80,down,LIGHT_YELLOW,LIGHT_CREAM);
 	}glPopMatrix();
 	//arc
 	glPushMatrix();
@@ -341,14 +341,14 @@ void draw45DegreeGate()
 	}glPopMatrix();
 	//border
 	p = getPoint(-114,-85,-25);
-	drawBox(p,227,240,90,25,VIOLATE);
+	drawBox(p,227,240,90,25,LIGHT_YELLOW);
 	//side
 	p = getPoint(-154,-50,-25);
-	drawCube(p,40,5,280,GREEN,SOLID);
+	drawCube(p,40,5,280,SILVER,SOLID);
 	p = getPoint(114,-50,-25);
-	drawCube(p,40,5,280,GREEN,SOLID);
+	drawCube(p,40,5,280,SILVER,SOLID);
 	p = getPoint(-114,-50,215);
-	drawCube(p,228,5,40,GREEN,SOLID);
+	drawCube(p,228,5,40,SILVER,SOLID);
 }
 void draw45DegreeGateSet()
 {
@@ -427,7 +427,7 @@ void drawRoof()
 	glEnable(GL_CLIP_PLANE1);
 	glEnable(GL_CLIP_PLANE2);
 	glEnable(GL_CLIP_PLANE3);
-	drawCube(p,1760,1750,10,BROWN,SOLID);
+	drawCube(p,1760,1750,10,SILVER,SOLID);
 	glDisable(GL_CLIP_PLANE0);
 	glDisable(GL_CLIP_PLANE1);
 	glDisable(GL_CLIP_PLANE2);
@@ -466,7 +466,7 @@ void drawBaseBasicUnit()
 	p = getPoint(0,0,190);
 	drawDownFacePrism(p,80,35,down,CYAN,MAGENTA);
 	p = getPoint(0,-10,225);
-	drawCube(p,80,16,10,GREEN,SOLID);
+	drawCube(p,80,16,10,LIGHT_CREAM,SOLID);
 
 	p = getPoint(3,-4,235);
 	drawCube(p,6,10,32,YELLOW,SOLID);
@@ -479,7 +479,7 @@ void drawBaseBasicUnit()
 	drawCube(p,3,2,32,BLUE,SOLID);
 
 	p = getPoint(9,0,235);
-	drawDownFacePrism(p,62,32,down,WOOD4,LIGHT_WOOD);
+	drawDownFacePrism(p,62,32,down,WOOD4,LIGHT_CREAM);
 }
 
 void drawBase()
@@ -531,11 +531,11 @@ void drawSmallDomeBasicUnit()
 	Point p;
 	double y = -155;
 	p = getPoint(-65,y,0);
-	drawCube(p,15,15,270,ORANGE,SOLID);
+	drawCube(p,15,15,270,SILVER,SOLID);
 	p = getPoint(50,y,0);
-	drawCube(p,15,15,270,ORANGE,SOLID);
+	drawCube(p,15,15,270,SILVER,SOLID);
 	p = getPoint(-65,y,230);
-	drawCube(p,115,15,40,ORANGE,SOLID);
+	drawCube(p,115,15,40,SILVER,SOLID);
 	glPushMatrix();
 	{
 		glTranslatef(-50,y,137);
@@ -611,7 +611,7 @@ void drawSmallDomeType2BasicUnit()
 	drawCube(p,15,15,45,ORANGE,SOLID);
 	drawCube(p,130,15,30,ORANGE,SOLID);
 	p = getPoint(-69+7,y+7,45);
-	drawCylinder(p,7,7,140,VIOLATE,SOLID);
+	drawCylinder(p,7,7,140,LIGHT_YELLOW,SOLID);
 
 	p = getPoint(-65,y,185);
 	drawCube(p,15,15,45,BLUE,SOLID);

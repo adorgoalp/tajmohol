@@ -11,9 +11,9 @@ void display(){
 	setupCamera();
 	//code here
 	drawWalls();
-	//drawRoof();
+	drawRoof();
 	//drawBase();
-	//drawDomes();
+	drawDomes();
 	//drawFloors();
 	glPushMatrix();
 	{

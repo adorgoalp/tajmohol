@@ -145,7 +145,7 @@ void drawFrontDoor()
 	drawCube(p,420,5,150,SILVER,SOLID);
 	//drawBox
 	p = getPoint(-215,-200,-25);
-	drawBox(p,470,505,200,25,LIGHT_YELLOW);
+	drawBox(p,470,505,200,25,BLACKEN_SILVER);
 	//side gap
 	p = getPoint(-315,-190,-25);
 	drawCube(p,100,5,600,SILVER,SOLID);
@@ -201,7 +201,7 @@ void drawSmallDoorType1()
 	drawCube(p,150,5,60,SILVER,SOLID);
 	//box
 	p = getPoint(-104,-60,-25);
-	drawBox(p,208,240,60,25,LIGHT_YELLOW);
+	drawBox(p,208,240,60,25,BLACKEN_SILVER);
 	//side
 	p = getPoint(-144,-50,-25);
 	drawCube(p,40,5,280,SILVER,SOLID);
@@ -213,10 +213,11 @@ void drawSmallDoorType1()
 void drawHeadOfPiller()
 {
 	GLUquadricObj *quadratic;
-	quadratic = gluNewQuadric();
-	gluCylinder(quadratic,12,24,32,8,3);	
+	quadratic = gluNewQuadric();	
 	glPushMatrix();
 	{
+		glColor3ub(GOLDEN);
+		gluCylinder(quadratic,12,24,32,8,3);
 		glTranslatef(0,0,32);
 		double c[] ={0,0,1,0};
 		glClipPlane(GL_CLIP_PLANE0,c);
@@ -224,15 +225,15 @@ void drawHeadOfPiller()
 		glutSolidSphere(24,20,20);
 		glDisable(GL_CLIP_PLANE0);
 	}glPopMatrix();
-	Point p = getPoint(0,0,50);
-	drawCone(p,16,10,ORANGE,SOLID);
+	Point p = getPoint(0,0,51);
+	drawCone(p,15,10,GOLDENROD,SOLID);
 	p = getPoint(0,0,65);
-	drawSphere(p,5,YELLOW,SOLID);
+	drawSphere(p,5,GOLDEN,SOLID);
 	
 	p = getPoint(0,0,80);
-	drawSphere(p,10,YELLOW,SOLID);
+	drawSphere(p,10,GOLDEN,SOLID);
 	p = getPoint(0,0,85);
-	drawCylinder(p,5,0,15,ORANGE,OPEN);
+	drawCylinder(p,5,0,15,GOLDENROD,OPEN);
 }
 void drawPiller(Point center, GLdouble height, GLdouble radius,int r,int g,int b,int rr,int gr,int br)
 {
@@ -260,15 +261,15 @@ void drawSmallDoorSetType1WithPiller(bool isLeft)
 	if(isLeft)
 	{
 		Point p = getPoint(-152,-50,-25);
-		drawPiller(p,700,12,BLACKEN_SILVER,LIGHT_YELLOW);
+		drawPiller(p,700,12,BLACKEN_SILVER,GOLDEN);
 		p = getPoint(144,-50,-25);
-		drawPiller(p,900,12,BLACKEN_SILVER,LIGHT_YELLOW);
+		drawPiller(p,900,12,BLACKEN_SILVER,GOLDEN);
 	}else
 	{
 		Point p = getPoint(-152,-50,-25);
-		drawPiller(p,900,12,BLACKEN_SILVER,LIGHT_YELLOW);
+		drawPiller(p,900,12,BLACKEN_SILVER,GOLDEN);
 		p = getPoint(144,-50,-25);
-		drawPiller(p,700,12,BLACKEN_SILVER,LIGHT_YELLOW);
+		drawPiller(p,700,12,BLACKEN_SILVER,GOLDEN);
 	}
 }
 void drawFrontPanel()
@@ -341,7 +342,7 @@ void draw45DegreeGate()
 	}glPopMatrix();
 	//border
 	p = getPoint(-114,-85,-25);
-	drawBox(p,227,240,90,25,LIGHT_YELLOW);
+	drawBox(p,227,240,90,25,BLACKEN_SILVER);
 	//side
 	p = getPoint(-154,-50,-25);
 	drawCube(p,40,5,280,SILVER,SOLID);
@@ -437,36 +438,36 @@ void drawBaseBasicUnit()
 {
 	GLdouble down = 4.0;
 	Point p = getPoint(0,0,0);
-	drawDownFacePrism(p,80,190,down,LIGHT_YELLOW,SILVER);
+	drawDownFacePrism(p,80,190,down,GOLDEN,DARK_WHITE);
 	p = getPoint(27,0,90);
-	drawCube(p,28,down,45,LIGHT_YELLOW,SOLID);
+	drawCube(p,28,down,45,GOLDEN,SOLID);
 	p = getPoint(4,0,165);
-	drawCube(p,72,down,21,LIGHT_YELLOW,SOLID);
+	drawCube(p,72,down,21,GOLDEN,SOLID);
 	for(int i = 0 ; i < 5 ; i++)
 	{
 		p = getPoint(4,0,165-2*(i+1));
-		drawCube(p,36-i,down,2,LIGHT_YELLOW,SOLID);
+		drawCube(p,36-i,down,2,GOLDEN,SOLID);
 		p = getPoint(40+i,0,165-2*(i+1));
-		drawCube(p,36-i,down,2,LIGHT_YELLOW,SOLID);
+		drawCube(p,36-i,down,2,GOLDEN,SOLID);
 	}
 	for(int i = 0 ; i < 5 ; i++)
 	{
 		p = getPoint(4,0,155-2*(i+1));
-		drawCube(p,20-i,down,2,LIGHT_YELLOW,SOLID);
+		drawCube(p,20-i,down,2,GOLDEN,SOLID);
 		p = getPoint(56+i,0,155-2*(i+1));
-		drawCube(p,20-i,down,2,LIGHT_YELLOW,SOLID);
+		drawCube(p,20-i,down,2,GOLDEN,SOLID);
 	}
 	for(int i = 0 ; i < 5 ; i++)
 	{
 		p = getPoint(4,0,145-2*(i+1));
-		drawCube(p,5-i,down,2,LIGHT_YELLOW,SOLID);
+		drawCube(p,5-i,down,2,GOLDEN,SOLID);
 		p = getPoint(71+i,0,145-2*(i+1));
-		drawCube(p,5-i,down,2,LIGHT_YELLOW,SOLID);
+		drawCube(p,5-i,down,2,GOLDEN,SOLID);
 	}
 	p = getPoint(0,0,190);
 	drawDownFacePrism(p,80,35,down,WOOD4,WHITE2);
 	p = getPoint(0,-10,225);
-	drawCube(p,80,16,10,LIGHT_CREAM,SOLID);
+	drawCube(p,80,16,10,GOLDEN,SOLID);
 
 	p = getPoint(3,-4,235);
 	drawCube(p,6,10,32,WHITE4,SOLID);
@@ -531,11 +532,11 @@ void drawSmallDomeBasicUnit()
 	Point p;
 	double y = -155;
 	p = getPoint(-65,y,0);
-	drawCube(p,15,15,270,SILVER,SOLID);
+	drawCube(p,15,15,270,ORANGE,SOLID);
 	p = getPoint(50,y,0);
-	drawCube(p,15,15,270,SILVER,SOLID);
+	drawCube(p,15,15,270,ORANGE,SOLID);
 	p = getPoint(-65,y,230);
-	drawCube(p,115,15,40,SILVER,SOLID);
+	drawCube(p,115,15,40,ORANGE,SOLID);
 	glPushMatrix();
 	{
 		glTranslatef(-50,y,137);
@@ -555,7 +556,7 @@ void drawSmallDome()
 		}
 	}glPopMatrix();
 	//base
-	glColor3ub(ORANGE);
+	glColor3ub(GOLDENROD);
 	GLUquadricObj *quadratic;
 	quadratic = gluNewQuadric();
 	glPushMatrix();
@@ -587,40 +588,40 @@ void drawSmallDome()
 	double c[] = {0,0,1,-270};
 	glClipPlane(GL_CLIP_PLANE0,c);
 	glEnable(GL_CLIP_PLANE0);
-	drawSphere(p,120,YELLOW,SOLID);
+	drawSphere(p,120,GOLDEN,SOLID);
 	glDisable(GL_CLIP_PLANE0);
 
 	p = getPoint(0,0,380);
-	drawCone(p,50,30,ORANGE,SOLID);
+	drawCone(p,50,30,GOLDENROD,SOLID);
 	p = getPoint(0,0,420);
-	drawSphere(p,10,YELLOW,SOLID);
+	drawSphere(p,10,GOLDEN,SOLID);
 	p = getPoint(0,0,450);
-	drawSphere(p,20,YELLOW,SOLID);
+	drawSphere(p,20,GOLDEN,SOLID);
 	p = getPoint(0,0,480);
-	drawSphere(p,10,YELLOW,SOLID);
+	drawSphere(p,10,GOLDEN,SOLID);
 	p = getPoint(0,0,485);
-	drawCylinder(p,5,5,15,ORANGE,SOLID);
+	drawCylinder(p,5,5,15,GOLDENROD,SOLID);
 	p = getPoint(0,0,500);
-	drawCone(p,5,10,YELLOW,SOLID);
+	drawCone(p,5,10,GOLDEN,SOLID);
 }
 void drawSmallDomeType2BasicUnit()
 {
 	Point p;
 	double y = -155;
 	p = getPoint(-69,y,0);
-	drawCube(p,15,15,45,ORANGE,SOLID);
-	drawCube(p,130,15,30,ORANGE,SOLID);
+	drawCube(p,15,15,45,GOLDENROD,SOLID);
+	drawCube(p,130,15,30,GOLDENROD,SOLID);
 	p = getPoint(-69+7,y+7,45);
-	drawCylinder(p,7,7,140,LIGHT_YELLOW,SOLID);
+	drawCylinder(p,7,7,140,ORANGE,SOLID);
 
 	p = getPoint(-65,y,185);
-	drawCube(p,15,15,45,BLUE,SOLID);
+	drawCube(p,15,15,45,GOLDEN,SOLID);
 
 	p = getPoint(-65,y,230);
-	drawCube(p,130,15,40,ORANGE,SOLID);
+	drawCube(p,130,15,40,GOLDENROD,SOLID);
 
 	p = getPoint(50,y,185);
-	drawCube(p,15,15,45,BLUE,SOLID);
+	drawCube(p,15,15,45,GOLDEN,SOLID);
 
 	glPushMatrix();
 	{
@@ -641,11 +642,12 @@ void drawSmallDomeType2()
 		}
 	}glPopMatrix();
 	//base
-	glColor3ub(ORANGE);
+	glColor3ub(GOLDENROD);
 	GLUquadricObj *quadratic;
 	quadratic = gluNewQuadric();
 	glPushMatrix();
 	{
+		glColor3ub(GOLDEN);
 		glRotatef(22.5,0,0,1);
 		glPushMatrix();
 		{
@@ -656,14 +658,16 @@ void drawSmallDomeType2()
 	}glPopMatrix();
 	glPushMatrix();
 	{
+		glColor3ub(GOLDENROD);
 		glRotatef(22.5,0,0,1);
 		glPushMatrix();
 		{
-		glTranslatef(0,0,246);
-		gluDisk(quadratic,0,200,8,1);
+			glTranslatef(0,0,246);
+			gluDisk(quadratic,0,200,8,1);
 		}glPopMatrix();
 		glPushMatrix();
 		{
+
 			glTranslatef(0,0,270);
 			gluDisk(quadratic,0,170,8,1);
 		}glPopMatrix();
@@ -674,22 +678,22 @@ void drawSmallDomeType2()
 	double c[] = {0,0,1,-270};
 	glClipPlane(GL_CLIP_PLANE0,c);
 	glEnable(GL_CLIP_PLANE0);
-	drawSphere(p,120,YELLOW,SOLID);
+	drawSphere(p,120,GOLDEN,SOLID);
 	glDisable(GL_CLIP_PLANE0);
 
 	p = getPoint(0,0,380);
-	drawCone(p,50,30,ORANGE,SOLID);
+	drawCone(p,50,30,GOLDENROD,SOLID);
 	p = getPoint(0,0,420);
-	drawSphere(p,10,YELLOW,SOLID);
+	drawSphere(p,10,GOLDEN,SOLID);
 	
 	p = getPoint(0,0,450);
-	drawSphere(p,20,YELLOW,SOLID);
+	drawSphere(p,20,GOLDEN,SOLID);
 	p = getPoint(0,0,480);
-	drawSphere(p,10,YELLOW,SOLID);
+	drawSphere(p,10,GOLDEN,SOLID);
 	p = getPoint(0,0,485);
-	drawCylinder(p,5,5,15,ORANGE,SOLID);
+	drawCylinder(p,5,5,15,GOLDENROD,SOLID);
 	p = getPoint(0,0,500);
-	drawCone(p,5,10,YELLOW,SOLID);
+	drawCone(p,5,10,GOLDEN,SOLID);
 }
 
 void drawBigDome()
@@ -698,25 +702,25 @@ void drawBigDome()
 	q = gluNewQuadric();
 	glPushMatrix();
 	{
-		glColor3ub(ORANGE);
+		glColor3ub(GOLDENROD);
 		glTranslatef(-50,600,540);
 		gluCylinder(q,500,500,100,30,1);
 		glTranslatef(0,0,100);
 		gluDisk(q,480,500,30,1);
 		gluCylinder(q,480,480,100,30,1);
-		glColor3ub(YELLOW);
+		glColor3ub(GOLDEN);
 		glTranslatef(0,0,100);
 		gluCylinder(q,480,480,50,30,1);
-		glColor3ub(ORANGE);
+		glColor3ub(GOLDENROD);
 		glTranslatef(0,0,50);
 		glutSolidTorus(10,480,30,30);
-		glColor3ub(YELLOW);
+		glColor3ub(GOLDEN);
 		glTranslatef(0,0,180);
 		gluSphere(q,500,30,30);
-		glColor3ub(ORANGE);
+		glColor3ub(GOLDENROD);
 		glTranslatef(0,0,490);
 		gluCylinder(q,100,0,50,15,1);
-		glColor3ub(YELLOW);
+		glColor3ub(GOLDEN);
 		glTranslatef(0,0,75);
 		gluSphere(q,30,10,10);
 		glTranslatef(0,0,85);
@@ -858,7 +862,9 @@ void drawBuilding2Window()
 	Point p;
 	//box
 	p = getPoint(-104,-50,-25);
-	drawDownFacePrism(p,208,208,3,DEEP_BRICK,LIGHT_BRICK);
+	drawDownFacePrism(p,208,208,7,DEEP_BRICK,LIGHT_BRICK);
+	p = getPoint(-65,-50,-25);
+	drawDownFacePrism(p,130,130,3,DEEP_BRICK,WHITE4);
 
 	//side
 	p = getPoint(-144,-50,-25);
@@ -879,15 +885,15 @@ void drawSmallDoorBuilding21WithPiller(bool isLeft)
 	if(isLeft)
 	{
 		Point p = getPoint(-152,-50,-25);
-		drawPiller(p,700,12,MEDIUM_BRICK,DEEP_BRICK);
+		drawPiller(p,700,12,MEDIUM_BRICK,GOLDEN);
 		p = getPoint(144,-50,-25);
-		drawPiller(p,900,12,MEDIUM_BRICK,DEEP_BRICK);
+		drawPiller(p,900,12,MEDIUM_BRICK,GOLDEN);
 	}else
 	{
 		Point p = getPoint(-152,-50,-25);
-		drawPiller(p,900,12,MEDIUM_BRICK,DEEP_BRICK);
+		drawPiller(p,900,12,MEDIUM_BRICK,GOLDEN);
 		p = getPoint(144,-50,-25);
-		drawPiller(p,700,12,MEDIUM_BRICK,DEEP_BRICK);
+		drawPiller(p,700,12,MEDIUM_BRICK,GOLDEN);
 	}
 }
 void drawBuilding2BigPillerBasicUnit()
@@ -1018,6 +1024,26 @@ void drawSmallBuilding()
 		drawBigDome();
 	}glPopMatrix();
 }
+void railingBigPiller()
+{
+	GLUquadric *q;
+	q = gluNewQuadric();
+	Point p,p2,p3;
+	p = getPoint(-20,-112,0);
+	p2 = getPoint(10,-115,0);
+	p3 = getPoint(12.5,-112.5,30);
+	glPushMatrix();
+	{
+		for(int i = 0 ; i < 20 ;i++)
+		{
+			glRotatef(18,0,0,1);
+			drawCube(p,30,5,20,GOLDEN,SOLID);
+			drawCube(p2,10,10,25,GOLDEN,SOLID);
+			drawSphere(p3,5,GOLDEN,SOLID);
+		}
+		gluDisk(q,60,112,20,3);
+	}glPopMatrix();
+}
 void drawMainBuildingSingleBigPiller()
 {
 	GLUquadric *q;
@@ -1037,9 +1063,35 @@ void drawMainBuildingSingleBigPiller()
 		glTranslatef(0,0,230);
 		glRotatef(22.5,0,0,1);
 		gluDisk(q,50,105,8,3);
+		glTranslatef(0,0,-230);
+		drawCylinder(p,85,60,1200,WHITE,OPEN);//the piller
+		glTranslatef(0,0,200);
+		for(int i = 0 ; i < 3 ;i++) // railing
+		{
+			glTranslatef(0,0,400);
+			railingBigPiller();
+		}
+		glTranslatef(0,0,10);
+		glScalef(0.5,0.5,0.5);
+		drawSmallDomeType2();
 	}glPopMatrix();
+	
 }
+
 void drawMainBuildingBigPillers()
 {
-	drawMainBuildingSingleBigPiller();
+	glPushMatrix();
+	{
+		glTranslatef(1550,2300,-260);
+		drawMainBuildingSingleBigPiller();
+		glTranslatef(-3100,0,0);
+		glRotatef(90,0,0,1);
+		drawMainBuildingSingleBigPiller();
+		glTranslatef(-3100,0,0);
+		glRotatef(90,0,0,1);
+		drawMainBuildingSingleBigPiller();
+		glTranslatef(-3100,0,0);
+		glRotatef(90,0,0,1);
+		drawMainBuildingSingleBigPiller();
+	}glPopMatrix();
 }

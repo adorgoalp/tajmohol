@@ -61,21 +61,25 @@ void keyboardListener(unsigned char key, int x,int y){
 
 void specialKeyListener(int key, int x,int y){
 	switch(key){
-		case GLUT_KEY_DOWN:		//down arrow key
-			//cameraRadius += 10;
+		case GLUT_KEY_DOWN:		
+			moveBackword();
 			break;
-		case GLUT_KEY_UP:		// up arrow key
+		case GLUT_KEY_UP:	
+			moveForword();
 			break;
 
 		case GLUT_KEY_RIGHT:
+			moveRight();
 			break;
 		case GLUT_KEY_LEFT:
+			moveLeft();
 			break;
 
 		case GLUT_KEY_PAGE_UP:
-			//cameraZ += 10;
+			moveUp();
 			break;
 		case GLUT_KEY_PAGE_DOWN:
+			moveDown();
 			break;
 
 		case GLUT_KEY_INSERT:

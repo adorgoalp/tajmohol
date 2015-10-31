@@ -10,21 +10,21 @@ void display(){
 	clearDisplay();
 	setupCamera();
 	//code here
-	//drawWalls();
-	//drawRoof();
-	//drawBase();
-	//drawDomes();
-	//drawFloors();
+	drawWalls();
+	drawRoof();
+	drawBase();
+	drawDomes();
+	drawFloors();
 	glPushMatrix();
 	{
 		glTranslatef(0,5000,0);
-		//drawSmallBuilding();
+		drawSmallBuilding();
 		glTranslatef(0,-8000,0);
 		glRotatef(180,0,0,1);
-		//drawSmallBuilding();
+		drawSmallBuilding();
 	}glPopMatrix();
 	drawMainBuildingBigPillers();
-	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
+	//drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }
 

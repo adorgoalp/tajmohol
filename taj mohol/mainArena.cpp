@@ -10,10 +10,10 @@ void display(){
 	clearDisplay();
 	setupCamera();
 	//code here
-	drawWalls();
-	drawRoof();
+	//drawWalls();
+	//drawRoof();
 	//drawBase();
-	drawDomes();
+	//drawDomes();
 	//drawFloors();
 	glPushMatrix();
 	{
@@ -23,7 +23,8 @@ void display(){
 		glRotatef(180,0,0,1);
 		//drawSmallBuilding();
 	}glPopMatrix();
-	//drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
+	drawMainBuildingBigPillers();
+	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }
 

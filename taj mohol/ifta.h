@@ -232,13 +232,7 @@ void drawCube(Point bottomLeftFront,GLdouble length,GLdouble width, GLdouble hei
 		glColor3ub(r,g,b);
 		glTranslatef(tx,ty,tz);
 		glScalef(length,width,height);
-		if(type == SOLID)
-		{
-			glutSolidCube(1);
-		}else if(type == WIRE)
-		{
-			glutWireCube(1);
-		}
+		glutSolidCube(1);
 	}glPopMatrix();
 }
 void drawCube( GLdouble length,GLdouble width, GLdouble height)

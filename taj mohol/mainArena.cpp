@@ -2,10 +2,9 @@
 #include<stdlib.h>
 #include<math.h>
 #include "drawing.h"
-#include<glut.h>
 #include "camera.h"
 #include "listener.h"
-#include"light.h"
+#include "light.h"
 #define GRID_SIZE 100
 void display(){
 	clearDisplay();
@@ -16,8 +15,15 @@ void display(){
 	//drawBase();
 	//drawDomes();
 	//drawFloors();
-	//drawSmallBuilding();
-	drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
+	glPushMatrix();
+	{
+		glTranslatef(0,5000,0);
+		//drawSmallBuilding();
+		glTranslatef(0,-8000,0);
+		glRotatef(180,0,0,1);
+		//drawSmallBuilding();
+	}glPopMatrix();
+	//drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }
 

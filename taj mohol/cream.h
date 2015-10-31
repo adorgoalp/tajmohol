@@ -28,10 +28,10 @@ void drawArc()
 	{
 		h = 10*log(i+3.0)-10*log(i+1.0);
 		p = getPoint(i-25,0,10*log(i*1.0));
-		drawCube(p,25,1,h,MEDIUM_CRREAM,SOLID);
+		drawCube(p,25,1,h,CRREAM,SOLID);
 		
 		p = getPoint(35-i,0,10*log(i*1.0));
-		drawCube(p,25,1,h,MEDIUM_CRREAM,SOLID);
+		drawCube(p,25,1,h,CRREAM,SOLID);
 	}
 	glDisable(GL_CLIP_PLANE0);
 	glDisable(GL_CLIP_PLANE1);

@@ -43,7 +43,7 @@ void setupCamera()
 
 	gluLookAt(cameraX,cameraY, cameraZ,		
 		cameraRadius*cos(cameraAngle)+cameraX, cameraRadius*sin(cameraAngle)+cameraY,cameraZ+cameraRadius*tan(cameraAngleV),	
-		screw,0,1);
+		sinf(screw),0,cosf(screw));
 	//NOTE: the camera still CONSTANTLY looks at the center
 	// cameraAngle is in RADIAN, since you are using inside COS and SIN
 	

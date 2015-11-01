@@ -1022,6 +1022,8 @@ void drawSmallBuilding()
 		drawBigDome();
 		glTranslatef(-2800,0,0);
 		drawBigDome();
+		glTranslatef(1000,0,0);
+		drawSmallDomeType2();
 	}glPopMatrix();
 }
 void railingBigPiller()

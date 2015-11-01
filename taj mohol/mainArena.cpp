@@ -17,9 +17,9 @@ void display(){
 	drawFloors();
 	glPushMatrix();
 	{
-		glTranslatef(0,5000,0);
+		glTranslatef(0,4500,0);
 		drawSmallBuilding();
-		glTranslatef(0,-8000,0);
+		glTranslatef(0,-8200,0);
 		glRotatef(180,0,0,1);
 		drawSmallBuilding();
 	}glPopMatrix();

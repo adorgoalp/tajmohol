@@ -1,5 +1,6 @@
 #include "color.h"
 #include "ifta.h"
+void railingBigPiller();
 void drawDownFacePrism(Point p, GLdouble length, GLdouble width, GLdouble down, unsigned short rb, unsigned short gb, unsigned short bb, unsigned short rf, unsigned short gf, unsigned short bf)
 {
 	Point t;
@@ -937,6 +938,37 @@ void drawBuilding2Side()
 
 	}glPopMatrix();
 }
+void drawBigOctaDome()
+{
+	Point p;
+	
+		glPushMatrix();
+		{
+			for(int i = 0 ; i < 8; i++)
+			{
+				glRotatef(45,0,0,1);
+				p = getPoint(-100,-255,0);
+				drawCube(p,200,50,300,DEEP_BRICK,SOLID);
+				glPushMatrix();
+				{
+					glTranslatef(0,-10,300);
+					glScalef(1.5,1.5,1);
+					drawSmallDomeBasicUnit();
+				}glPopMatrix();
+
+			}
+			glTranslatef(0,0,290);
+			glScalef(3.5,3.5,3.5);
+			railingBigPiller();
+			glTranslatef(0,0,80);
+			railingBigPiller();
+			glTranslatef(0,0,10);
+			glScalef(0.4,0.4,0.4);
+			drawSmallDomeType2();
+		}glPopMatrix();
+		
+	
+}
 void drawSmallBuilding()
 {
 	//
@@ -1022,8 +1054,34 @@ void drawSmallBuilding()
 		drawBigDome();
 		glTranslatef(-2800,0,0);
 		drawBigDome();
-		glTranslatef(1000,0,0);
+		glTranslatef(-500,1300,500);
 		drawSmallDomeType2();
+		glTranslatef(3750,0,0);
+		drawSmallDomeType2();
+	}glPopMatrix();
+	//wing
+	p = getPoint(1000,800,0);
+	drawCube(p,800,50,300,DEEP_BRICK,SOLID);
+	p = getPoint(1000,650,0);
+	drawCube(p,800,50,300,DEEP_BRICK,SOLID);
+	glPushMatrix();
+	{
+		glTranslatef(2000,700,0);
+		drawBigOctaDome();
+	}glPopMatrix();
+	glPushMatrix();
+	{
+		glTranslatef(0,1500,0);
+		glRotatef(180,0,0,1);
+		p = getPoint(1000,800,0);
+		drawCube(p,800,50,300,DEEP_BRICK,SOLID);
+		p = getPoint(1000,650,0);
+		drawCube(p,800,50,300,DEEP_BRICK,SOLID);
+		glPushMatrix();
+		{
+			glTranslatef(2000,700,0);
+			drawBigOctaDome();
+		}glPopMatrix();
 	}glPopMatrix();
 }
 void railingBigPiller()

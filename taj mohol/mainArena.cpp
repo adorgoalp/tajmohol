@@ -1,29 +1,31 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 #include "drawing.h"
 #include "camera.h"
 #include "listener.h"
 #include "light.h"
+
 #define GRID_SIZE 100
+
 void display(){
 	clearDisplay();
 	setupCamera();
 	//code here
-	drawWalls();
-	drawRoof();
-	drawBase();
+	//drawWalls();
+	//drawRoof();
+	//drawBase();
 	drawDomes();
-	drawFloors();
-	glPushMatrix();
+	//drawFloors();
+	/*glPushMatrix();
 	{
 		glTranslatef(0,4500,0);
 		drawSmallBuilding();
 		glTranslatef(0,-8200,0);
 		glRotatef(180,0,0,1);
 		drawSmallBuilding();
-	}glPopMatrix();
-	drawMainBuildingBigPillers();
+	}glPopMatrix();*/
+	//drawMainBuildingBigPillers();
 	//drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }
@@ -32,8 +34,6 @@ void animate(){
 	//codes for any changes in Camera
 	glutPostRedisplay();	//this will call the display AGAIN
 }
-
-
 
 
 void init(){
@@ -56,7 +56,8 @@ void init(){
 	//aspect ratio that determines the field of view in the X direction (horizontally)
 	//near distance
 	//far distance
-	loadCameraData();
+	loadCameraData(); 
+	initBitmaps();
 }
 
 int main(int argc, char **argv){

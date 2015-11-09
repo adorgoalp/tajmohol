@@ -150,7 +150,7 @@ void drawGrid(int spacing, int totalSize,int canDrawGrid)
 	int muberOfLinesOnEachSide = totalSize/spacing;
 	//WILL draw grid IF the "canDrawGrid" is true:
 
-	if(canDrawGrid == true){
+	if(canDrawGrid){
 		glColor3ub(75,75,75);	//grey
 		glBegin(GL_LINES);{
 			for(i=-muberOfLinesOnEachSide;i<=muberOfLinesOnEachSide;i++){

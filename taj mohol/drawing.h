@@ -1,5 +1,7 @@
 #include "color.h"
 #include "ifta.h"
+#include "texture.h"
+
 void railingBigPiller();
 void drawDownFacePrism(Point p, GLdouble length, GLdouble width, GLdouble down, unsigned short rb, unsigned short gb, unsigned short bb, unsigned short rf, unsigned short gf, unsigned short bf)
 {
@@ -715,9 +717,18 @@ void drawBigDome()
 		glColor3ub(GOLDENROD);
 		glTranslatef(0,0,50);
 		glutSolidTorus(10,480,30,30);
-		glColor3ub(GOLDEN);
+
+		// The fat big sphere
+		//glColor3ub(SKY_BLUE);
 		glTranslatef(0,0,180);
+
+		glEnable(GL_TEXTURE_2D);
+		glBindTexture(GL_TEXTURE_2D, textureBrick);
+		gluQuadricNormals(q, GLU_SMOOTH);
+		gluQuadricTexture(q, GLU_TRUE);
 		gluSphere(q,500,30,30);
+		glDisable(GL_TEXTURE_2D);
+
 		glColor3ub(GOLDENROD);
 		glTranslatef(0,0,490);
 		gluCylinder(q,100,0,50,15,1);
@@ -735,7 +746,7 @@ void drawBigDome()
 void drawDomes()
 {
 	drawBigDome();
-	glPushMatrix();
+	/*glPushMatrix();
 	{
 		glTranslatef(-580,80,555);
 		drawSmallDome();
@@ -745,7 +756,7 @@ void drawDomes()
 		drawSmallDome();
 		glTranslatef(0,-1200,0);
 		drawSmallDome();
-	}glPopMatrix();
+	}glPopMatrix();*/
 }
 void drawFloors()
 {

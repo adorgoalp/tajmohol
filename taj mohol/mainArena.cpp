@@ -11,10 +11,11 @@
 void display(){
 	clearDisplay();
 	setupCamera();
+	displayLighting();
 	//code here
-	//drawWalls();
-	//drawRoof();
-	//drawBase();
+	drawWalls();
+	drawRoof();
+	drawBase();
 	drawDomes();
 	//drawFloors();
 	/*glPushMatrix();
@@ -36,12 +37,10 @@ void animate(){
 }
 
 
-void init(){
+void init() {
 	//codes for initialization
 	initializeCamera();
 	canDrawGrid = true;
-	//clear the screen
-	glClearColor(BLACK, 0);
 	//lighting
 	
 	enableLighting();
@@ -62,7 +61,7 @@ void init(){
 
 int main(int argc, char **argv){
 	glutInit(&argc,argv);
-	glutInitWindowSize(900	, 900);
+	glutInitWindowSize(700, 700);
 	glutInitWindowPosition(0, 0);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGB);	//Depth, Double buffer, RGB color
 

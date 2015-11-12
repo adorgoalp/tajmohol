@@ -708,26 +708,51 @@ void drawBigDome()
 		glColor3ub(GOLDENROD);
 		glTranslatef(-50,600,540);
 		gluCylinder(q,500,500,100,30,1);
+		
+		// Dome base lower
 		glTranslatef(0,0,100);
 		gluDisk(q,480,500,30,1);
 		gluCylinder(q,480,480,100,30,1);
-		glColor3ub(GOLDEN);
-		glTranslatef(0,0,100);
-		gluCylinder(q,480,480,50,30,1);
+
+		// Dome base upper
+		glEnable(GL_TEXTURE_2D);
+		glMatrixMode (GL_TEXTURE);
+		glPushMatrix(); {
+			glScalef(30, 0.5, 10);
+			glBindTexture(GL_TEXTURE_2D, textureBrick);
+			gluQuadricNormals(q, GLU_SMOOTH);
+			gluQuadricTexture(q, GLU_TRUE);
+
+			glMatrixMode(GL_MODELVIEW);
+			glTranslatef(0,0,100);
+			gluCylinder(q,480,480,50,30,1);
+			glMatrixMode (GL_TEXTURE);
+		} glPopMatrix();
+		glDisable(GL_TEXTURE_2D);
+		glMatrixMode(GL_MODELVIEW);
+
 		glColor3ub(GOLDENROD);
 		glTranslatef(0,0,50);
 		glutSolidTorus(10,480,30,30);
 
 		// The fat big sphere
-		//glColor3ub(SKY_BLUE);
+		// glColor3ub(SKY_BLUE);
 		glTranslatef(0,0,180);
 
 		glEnable(GL_TEXTURE_2D);
-		glBindTexture(GL_TEXTURE_2D, textureBrick);
-		gluQuadricNormals(q, GLU_SMOOTH);
-		gluQuadricTexture(q, GLU_TRUE);
-		gluSphere(q,500,30,30);
+		glMatrixMode (GL_TEXTURE);
+		glPushMatrix(); {
+			glScalef (40, 20, 10);
+			glBindTexture(GL_TEXTURE_2D, textureBigDomeMain);
+			gluQuadricNormals(q, GLU_SMOOTH);
+			gluQuadricTexture(q, GLU_TRUE);
+
+			glMatrixMode(GL_MODELVIEW);
+			gluSphere(q,500,30,30);
+			glMatrixMode (GL_TEXTURE);
+		} glPopMatrix();
 		glDisable(GL_TEXTURE_2D);
+		glMatrixMode(GL_MODELVIEW);
 
 		glColor3ub(GOLDENROD);
 		glTranslatef(0,0,490);
@@ -741,12 +766,12 @@ void drawBigDome()
 		gluSphere(q,30,10,10);
 		glTranslatef(0,0,15);
 		gluCylinder(q,15,0,100,15,1);
-	}glPopMatrix();
+	} glPopMatrix();
 }
 void drawDomes()
 {
 	drawBigDome();
-	/*glPushMatrix();
+	glPushMatrix();
 	{
 		glTranslatef(-580,80,555);
 		drawSmallDome();
@@ -756,7 +781,7 @@ void drawDomes()
 		drawSmallDome();
 		glTranslatef(0,-1200,0);
 		drawSmallDome();
-	}glPopMatrix();*/
+	}glPopMatrix();
 }
 void drawFloors()
 {

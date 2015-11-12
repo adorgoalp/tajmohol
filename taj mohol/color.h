@@ -2,6 +2,7 @@
 #define WHITE2 245,245,245
 #define WHITE3 240,240,240
 #define WHITE4 250,250,250
+#define LIGHT_WHITE 100,100,90
 #define DARK_WHITE 225,225,225
 #define ASH 128,128,128
 #define BLACK 0,0,0

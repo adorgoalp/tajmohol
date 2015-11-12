@@ -311,7 +311,7 @@ void clearDisplay()
 {
 	//clear the display
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glClearColor(BLACK, 0);	//color black
+	//glClearColor(BLACK, 0);	//color black
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 }

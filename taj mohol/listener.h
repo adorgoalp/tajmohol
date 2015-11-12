@@ -1,3 +1,5 @@
+#include "light.h"
+
 void keyboardListener(unsigned char key, int x,int y){
 	switch(key){
 		case '1':	
@@ -49,6 +51,9 @@ void keyboardListener(unsigned char key, int x,int y){
 			break;
 		case 'l':	
 			loadCameraData();
+			break;
+		case 'n':
+			toggleLightMode();
 			break;
 		case 27:	//ESCAPE KEY -- simply exit
 			exit(0);

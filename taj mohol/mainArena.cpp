@@ -31,8 +31,8 @@ void display(){
 	glutSwapBuffers();
 }
 
-void animate(){
-	//codes for any changes in Camera
+void animate() {
+	diffuseLightAngle += 0.1;
 	glutPostRedisplay();	//this will call the display AGAIN
 }
 
@@ -41,13 +41,13 @@ void init() {
 	//codes for initialization
 	initializeCamera();
 	canDrawGrid = true;
-	//lighting
-	
-	enableLighting();
 	
 	//initialize the matrix
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+	
+	//lighting
+	enableLighting();
 
 	//give PERSPECTIVE parameters
 	gluPerspective(70,	1,	0.1,	10000.0);

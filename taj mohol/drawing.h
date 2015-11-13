@@ -709,6 +709,7 @@ void drawBigDome()
 		glTranslatef(-50,600,540);
 		gluCylinder(q,500,500,100,30,1);
 		
+		glColor3ub(WHITE4);
 		// Dome base lower
 		glTranslatef(0,0,100);
 		gluDisk(q,480,500,30,1);
@@ -731,7 +732,7 @@ void drawBigDome()
 		glDisable(GL_TEXTURE_2D);
 		glMatrixMode(GL_MODELVIEW);
 
-		glColor3ub(GOLDENROD);
+		//glColor3ub(GOLDENROD);
 		glTranslatef(0,0,50);
 		glutSolidTorus(10,480,30,30);
 

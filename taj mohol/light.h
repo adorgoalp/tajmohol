@@ -43,7 +43,7 @@ void displayLighting() {
 	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
 
 	// configure spot light source
-	GLfloat spotLightPosition[] = {0, -3500, 1500, 1};
+	GLfloat spotLightPosition[] = {50, -4140, 1800, 1};
 	GLfloat cutOffAngle[] = {30.0};
 	GLfloat fallOfExponent[] = {10};
 	glLightfv(GL_LIGHT1, GL_POSITION, spotLightPosition); 
@@ -98,7 +98,6 @@ void enableLighting()
 
 	glEnable (GL_LIGHTING);
 	glEnable(GL_COLOR_MATERIAL);
-	glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 	glEnable(GL_LIGHT0);
 	glEnable(GL_LIGHT1);
 	glEnable(GL_NORMALIZE);

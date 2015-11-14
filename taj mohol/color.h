@@ -23,7 +23,7 @@
 #define YELLOW 255,255,0
 #define CYAN 0,255,255
 #define MAGENTA 255,0,255
-#define BLUE 0,128,192
+#define BLUE 0,0,255
 //#define ORANGE 255,128,0
 #define GOLDENROD 218,165,32
 #define ORANGE 255,165,0

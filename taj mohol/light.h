@@ -13,8 +13,8 @@ double diffuseLightRadius = 2000;
 double diffuseLightHeight = 1000;
 
 void setLightMode(char mode) {
-	GLfloat dayAmbient[] = { 0.45, 0.45, 0.40, 1.0 }; 
-	GLfloat nightAmbient[] = { .15, .15, .20, 1.0 }; 
+	GLfloat dayAmbient[] = { 0.60, 0.60, 0.55, 1.0 }; 
+	GLfloat nightAmbient[] = { .25, .25, .50, 1.0 }; 
 
 	if (lightMode == 'd') {
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, dayAmbient);
@@ -33,24 +33,32 @@ void toggleLightMode() {
 	setLightMode(lightMode);
 }
 
+void toggleDiffuseLightColor() {
+	diffuseLightColor = (diffuseLightColor == 'w' ? 'b' : 'w');
+}
+
 void displayLighting() {
 
 	// configure diffuse light source
 	GLfloat position[] = {diffuseLightRadius*cos(diffuseLightAngle), diffuseLightRadius*sin(diffuseLightAngle), diffuseLightHeight, 1.0};
 	glLightfv(GL_LIGHT0, GL_POSITION, position); 
-	GLfloat light_emission[] = {.3, .3, .3, 1};
-	glMaterialfv(GL_FRONT, GL_EMISSION, light_emission);
-
-	// draw diffuse light source
-	glPushMatrix();
-	glTranslatef (diffuseLightRadius*cos(diffuseLightAngle), diffuseLightRadius*sin(diffuseLightAngle), diffuseLightHeight);
-	glutSolidSphere(50, 36, 36);
-	glPopMatrix();
+	GLfloat light_emission_white[] = {.2, .2, .2, 1};
+	GLfloat light_emission_blue[] = {.0, .0, .2, 1};
+	GLfloat unset[]={0,0,0,1};
+	glMaterialfv(GL_FRONT, GL_EMISSION, (diffuseLightColor == 'w' ? light_emission_white : light_emission_blue));
 
 	GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_specular[] = { 0.5, 0.5, 0.5, 1.0 };
 	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+
+	// draw diffuse light source
+	glPushMatrix();
+	glColor3ub(diffuseLightColor == 'w' ? WHITE : BLUE);
+	glTranslatef (diffuseLightRadius*cos(diffuseLightAngle), diffuseLightRadius*sin(diffuseLightAngle), diffuseLightHeight);
+	glutSolidSphere(50, 36, 36);
+	glPopMatrix();
 
 	/*if (lightMode == 'd') {
 		glClearColor(BLACK, 1.0);
@@ -64,9 +72,6 @@ void enableLighting()
 {
 	glShadeModel(GL_SMOOTH);
 	setLightMode(lightMode); 
-	
-	GLfloat diffusePoint[] = {0.5, 0.5, 0.5, 1.0};
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffusePoint); 
 
 	glEnable (GL_LIGHTING);
 	glEnable(GL_COLOR_MATERIAL);

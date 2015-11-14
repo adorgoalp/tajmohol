@@ -32,7 +32,7 @@ void display(){
 }
 
 void animate() {
-	diffuseLightAngle += 0.1;
+	diffuseLightAngle += diffuseLightAngleDelta;
 	glutPostRedisplay();	//this will call the display AGAIN
 }
 

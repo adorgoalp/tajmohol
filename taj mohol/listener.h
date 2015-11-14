@@ -58,6 +58,12 @@ void keyboardListener(unsigned char key, int x,int y){
 		case 'b':
 			toggleDiffuseLightColor();
 			break;
+		case '+':
+			diffuseLightAngleDelta += 0.02;
+			break;
+		case '-':
+			diffuseLightAngleDelta -= 0.02;
+			break;
 		case 27:	//ESCAPE KEY -- simply exit
 			exit(0);
 			break;

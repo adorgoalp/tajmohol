@@ -8,6 +8,7 @@ char lightMode = 'n';
 // Diffuse light color can be either 'w' (white) or blue ('b')
 char diffuseLightColor = 'w';
 double diffuseLightAngle = 0;
+double diffuseLightAngleDelta = 0.1;
 
 double diffuseLightRadius = 2000;
 double diffuseLightHeight = 1000;

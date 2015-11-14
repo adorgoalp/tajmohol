@@ -4,7 +4,7 @@
 #include<glut.h>
 #include "values.h"
 #define CAMERA_DISTANCE 2000
-#define MOVE_STEP_SIZE 50
+#define MOVE_STEP_SIZE 150
 double cameraAngle;			
 double cameraAngleV;		
 double cameraRadius;

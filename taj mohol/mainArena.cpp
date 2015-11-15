@@ -13,20 +13,20 @@ void display(){
 	setupCamera();
 	displayLighting();
 	//code here
-	drawWalls();
-	drawRoof();
+	//drawWalls();
+	//drawRoof();
 	drawBase();
 	drawDomes();
-	drawFloors();
-	glPushMatrix();
-	{
-		glTranslatef(0,4500,0);
-		drawSmallBuilding();
-		glTranslatef(0,-8200,0);
-		glRotatef(180,0,0,1);
-		drawSmallBuilding();
-	}glPopMatrix();
-	drawMainBuildingBigPillers();
+	//drawFloors();
+	//glPushMatrix();
+	//{
+	//	glTranslatef(0,4500,0);
+	//	drawSmallBuilding();
+	//	glTranslatef(0,-8200,0);
+	//	glRotatef(180,0,0,1);
+	//	drawSmallBuilding();
+	//}glPopMatrix();
+	//drawMainBuildingBigPillers();
 	//drawGrid(GRID_SIZE,CAMERA_DISTANCE,canDrawGrid);
 	glutSwapBuffers();
 }

@@ -6,6 +6,7 @@
 GLuint textureBigDomeMain;
 GLuint textureBrick;
 GLuint textureDomeBaseUpper;
+GLuint textureWall;
 
 int num_texture = 0;
 
@@ -65,4 +66,5 @@ void initBitmaps() {
 	textureBigDomeMain = loadBitmap("textures/big_dome_main.bmp");
 	textureBrick = loadBitmap("textures/brick.bmp");
 	textureDomeBaseUpper = loadBitmap("textures/dome_base_upper.bmp");
+	textureWall = loadBitmap("textures/wall.bmp");
 }

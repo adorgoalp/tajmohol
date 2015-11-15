@@ -222,18 +222,97 @@ void drawRect(Point topLeft, int width, int height, int r,int g, int b, int plan
 		}glEnd();
 	}glPopMatrix();		//the effect of rotation is not there now.
 }
-void drawCube(Point bottomLeftFront,GLdouble length,GLdouble width, GLdouble height, int r,int g, int b ,int type)
+void drawCube(Point bottomLeftFront,GLdouble length,GLdouble width, GLdouble height, int r,int g, int b ,GLuint type)
 {
-	GLdouble tx = bottomLeftFront.x + length/2;
-	GLdouble ty = bottomLeftFront.y + width/2;
-	GLdouble tz = bottomLeftFront.z + height/2;
-	glPushMatrix();
-	{
-		glColor3ub(r,g,b);
-		glTranslatef(tx,ty,tz);
-		glScalef(length,width,height);
-		glutSolidCube(1);
-	}glPopMatrix();
+	if (type == SOLID || type == WIRE || type == OPEN) {
+		GLdouble tx = bottomLeftFront.x + length/2;
+		GLdouble ty = bottomLeftFront.y + width/2;
+		GLdouble tz = bottomLeftFront.z + height/2;
+		glPushMatrix();
+		{
+			glColor3ub(r,g,b);
+			glTranslatef(tx,ty,tz);
+			glScalef(length,width,height);
+			glutSolidCube(1);
+		}glPopMatrix();
+	}
+	else {
+		glPushMatrix();
+		{
+			GLdouble tx = bottomLeftFront.x;
+			GLdouble ty = bottomLeftFront.y;
+			GLdouble tz = bottomLeftFront.z;
+			glTranslatef(tx,ty,tz);
+			glScalef(length,width,height);
+			//glutSolidCube(1);
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D,type);
+			glNormal3f(1.0,0.0,0.0);
+			glBegin(GL_POLYGON);
+				glTexCoord2f(0,0); glVertex3f(0, 0, 0);
+				glTexCoord2f(1,0); glVertex3f(0, 1, 0);
+				glTexCoord2f(1,1); glVertex3f(0, 1, 1);
+				glTexCoord2f(0,1); glVertex3f(0, 0, 1);
+			glEnd();
+			glDisable(GL_TEXTURE_2D);
+			
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D,type); 
+			glNormal3f(0.0,1.0,0.0);
+			glBegin(GL_POLYGON);
+				glTexCoord2f(0,0); glVertex3f(0, 0, 0);
+				glTexCoord2f(1,0); glVertex3f(1, 0, 0);
+				glTexCoord2f(1,1); glVertex3f(1, 0, 1);
+				glTexCoord2f(0,1); glVertex3f(0, 0, 1);
+			glEnd();
+			glDisable(GL_TEXTURE_2D);
+			
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D,type); 
+			glNormal3f(0.0,0.0,1.0);
+			glBegin(GL_POLYGON);
+				glTexCoord2f(0,0); glVertex3f(0, 0, 0);
+				glTexCoord2f(1,0); glVertex3f(1, 0, 0);
+				glTexCoord2f(1,1); glVertex3f(1, 1, 0);
+				glTexCoord2f(0,1); glVertex3f(0, 1, 0);
+			glEnd();
+			glDisable(GL_TEXTURE_2D);
+
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D,type);
+			glNormal3f(-1.0,0.0,0.0);
+			glBegin(GL_POLYGON);
+				glTexCoord2f(0,0); glVertex3f(1, 0, 0);
+				glTexCoord2f(1,0); glVertex3f(1, 1, 0);
+				glTexCoord2f(1,1); glVertex3f(1, 1, 1);
+				glTexCoord2f(0,1); glVertex3f(1, 0, 1);
+			glEnd();
+			glDisable(GL_TEXTURE_2D);
+			
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D,type); 
+			glNormal3f(0.0,-1.0,0.0);
+			glBegin(GL_POLYGON);
+				glTexCoord2f(0,0); glVertex3f(0, 1, 0);
+				glTexCoord2f(1,0); glVertex3f(1, 1, 0);
+				glTexCoord2f(1,1); glVertex3f(1, 1, 1);
+				glTexCoord2f(0,1); glVertex3f(0, 1, 1);
+			glEnd();
+			glDisable(GL_TEXTURE_2D);
+			
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D,type); 
+			glNormal3f(0.0,0.0,-1.0);
+			glBegin(GL_POLYGON);
+				glTexCoord2f(0,0); glVertex3f(0, 0, 1);
+				glTexCoord2f(1,0); glVertex3f(1, 0, 1);
+				glTexCoord2f(1,1); glVertex3f(1, 1, 1);
+				glTexCoord2f(0,1); glVertex3f(0, 1, 1);
+			glEnd();
+			glDisable(GL_TEXTURE_2D);
+
+		}glPopMatrix();
+	}
 }
 void drawCube( GLdouble length,GLdouble width, GLdouble height)
 {

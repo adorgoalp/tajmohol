@@ -4,7 +4,7 @@
 #include<glut.h>
 
 // Light mode can be either 'd' (day) or 'n' (night)
-char lightMode = 'n';
+char lightMode = 'd';
 // Diffuse light color can be either 'w' (white) or blue ('b')
 char diffuseLightColor = 'w';
 double diffuseLightAngle = 3.1416/4;
@@ -98,7 +98,7 @@ void enableLighting()
 
 	glEnable (GL_LIGHTING);
 	glEnable(GL_COLOR_MATERIAL);
-	glEnable(GL_LIGHT0);
+	//glEnable(GL_LIGHT0);
 	glEnable(GL_LIGHT1);
 	glEnable(GL_NORMALIZE);
 }

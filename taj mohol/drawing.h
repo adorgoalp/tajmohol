@@ -440,13 +440,14 @@ void drawRoof()
 void drawBaseBasicUnit()
 {
 	GLdouble down = 4.0;
-	Point p = getPoint(0,0,0);
-	drawDownFacePrism(p,80,190,down,GOLDEN,DARK_WHITE);
-	p = getPoint(27,0,90);
-	drawCube(p,28,down,45,GOLDEN,SOLID);
-	p = getPoint(4,0,165);
-	drawCube(p,72,down,21,GOLDEN,SOLID);
-	for(int i = 0 ; i < 5 ; i++)
+	Point p;
+	//p = getPoint(0,0,0);
+	//drawDownFacePrism(p,80,190,down,GOLDEN,DARK_WHITE);
+	//p = getPoint(27,0,90);
+	//drawCube(p,28,down,45,GOLDEN,SOLID);
+	p = getPoint(0,0,165);
+	drawCube(p,320,down,100,GOLDEN,textureWall);
+	/*for(int i = 0 ; i < 5 ; i++)
 	{
 		p = getPoint(4,0,165-2*(i+1));
 		drawCube(p,36-i,down,2,GOLDEN,SOLID);
@@ -466,34 +467,38 @@ void drawBaseBasicUnit()
 		drawCube(p,5-i,down,2,GOLDEN,SOLID);
 		p = getPoint(71+i,0,145-2*(i+1));
 		drawCube(p,5-i,down,2,GOLDEN,SOLID);
-	}
-	p = getPoint(0,0,190);
-	drawDownFacePrism(p,80,35,down,WOOD4,WHITE2);
-	p = getPoint(0,-10,225);
-	drawCube(p,80,16,10,GOLDEN,SOLID);
+	}*/
+	//p = getPoint(0,0,190);
+	//drawDownFacePrism(p,80,35,down,WOOD4,WHITE2);
+	//p = getPoint(0,-10,225);
+	//drawCube(p,80,16,10,GOLDEN,SOLID);
 
-	p = getPoint(3,-4,235);
+	/*p = getPoint(3,-4,235);
 	drawCube(p,6,10,32,WHITE4,SOLID);
 	p = getPoint(71,-4,235);
-	drawCube(p,6,10,32,WHITE4,SOLID);
+	drawCube(p,6,10,32,WHITE4,SOLID);*/
 
-	p = getPoint(0,0,235);
-	drawCube(p,3,2,32,BLACKEN_SILVER,SOLID);
-	p = getPoint(77,0,235);
-	drawCube(p,3,2,32,BLACKEN_SILVER,SOLID);
+	//p = getPoint(0,0,235);
+	//drawCube(p,3,2,32,BLACKEN_SILVER,SOLID);
+	//p = getPoint(77,0,235);
+	//drawCube(p,3,2,32,BLACKEN_SILVER,SOLID);
 
-	p = getPoint(9,0,235);
-	drawDownFacePrism(p,62,32,down,WOOD4,LIGHT_CREAM);
+	//p = getPoint(9,0,235);
+	//drawDownFacePrism(p,62,32,down,WOOD4,LIGHT_CREAM);
 }
 
 void drawBase()
 {
+	int repetations = 10;
+	int distance = 320;
+	int offset = -240;
 	glPushMatrix();
 	{
 		glTranslatef(-1700,-850,-260);
-		for(int i = 0 ; i < 40 ;i++)
+		glTranslatef(offset,-0,-0);
+		for(int i = 0 ; i < repetations ;i++)
 		{
-			glTranslatef(80,0,0);
+			glTranslatef(distance,0,0);
 			drawBaseBasicUnit();
 		}
 	}glPopMatrix();
@@ -501,9 +506,10 @@ void drawBase()
 	{
 		glTranslatef(-1625,2430,-260);
 		glRotatef(-90,0,0,1);
-		for(int i = 0 ; i < 40 ;i++)
+		glTranslatef(offset,-0,-0);
+		for(int i = 0 ; i < repetations ;i++)
 		{
-			glTranslatef(80,0,0);
+			glTranslatef(distance,0,0);
 			drawBaseBasicUnit();
 		}
 	}glPopMatrix();
@@ -511,9 +517,10 @@ void drawBase()
 	{
 		glTranslatef(1580,-930,-260);
 		glRotatef(90,0,0,1);
-		for(int i = 0 ; i < 40 ;i++)
+		glTranslatef(offset,-0,-0);
+		for(int i = 0 ; i < repetations ;i++)
 		{
-			glTranslatef(80,0,0);
+			glTranslatef(distance,0,0);
 			drawBaseBasicUnit();
 		}
 	}glPopMatrix();
@@ -521,9 +528,10 @@ void drawBase()
 	{
 		glTranslatef(1660,2350,-260);
 		glRotatef(180,0,0,1);
-		for(int i = 0 ; i < 40 ;i++)
+		glTranslatef(offset,-0,-0);
+		for(int i = 0 ; i < repetations ;i++)
 		{
-			glTranslatef(80,0,0);
+			glTranslatef(distance,0,0);
 			drawBaseBasicUnit();
 		}
 	}glPopMatrix();

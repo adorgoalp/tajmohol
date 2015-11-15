@@ -446,7 +446,7 @@ void drawBaseBasicUnit()
 	//p = getPoint(27,0,90);
 	//drawCube(p,28,down,45,GOLDEN,SOLID);
 	p = getPoint(0,0,165);
-	drawCube(p,320,down,100,GOLDEN,textureWall);
+	drawCube(p,320,down,200,GOLDEN,textureWall);
 	/*for(int i = 0 ; i < 5 ; i++)
 	{
 		p = getPoint(4,0,165-2*(i+1));
@@ -1156,7 +1156,7 @@ void drawMainBuildingSingleBigPiller()
 	Point p = getPoint(0,0,200);
 	glPushMatrix();
 	{
-		for(int i = 0 ; i < 5 ;i++)
+		/*for(int i = 0 ; i < 5 ;i++)
 		{
 			glRotatef(45,0,0,1);
 			glPushMatrix();
@@ -1164,7 +1164,7 @@ void drawMainBuildingSingleBigPiller()
 				glTranslatef(-40,-100,0);
 				drawBaseBasicUnit();
 			}glPopMatrix();
-		}
+		}*/
 		glTranslatef(0,0,230);
 		glRotatef(22.5,0,0,1);
 		gluDisk(q,50,105,8,3);

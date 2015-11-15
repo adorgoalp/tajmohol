@@ -244,7 +244,7 @@ void drawCube(Point bottomLeftFront,GLdouble length,GLdouble width, GLdouble hei
 			GLdouble tz = bottomLeftFront.z;
 			glTranslatef(tx,ty,tz);
 			glScalef(length,width,height);
-			//glutSolidCube(1);
+			glColor3ub(WHITE);
 			glEnable(GL_TEXTURE_2D);
 			glBindTexture(GL_TEXTURE_2D,type);
 			glNormal3f(1.0,0.0,0.0);

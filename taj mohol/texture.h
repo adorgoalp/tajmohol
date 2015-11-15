@@ -7,6 +7,8 @@ GLuint textureBigDomeMain;
 GLuint textureBrick;
 GLuint textureDomeBaseUpper;
 GLuint textureWall;
+GLuint textureWhiteFloor;
+GLuint textureRedFloor;
 
 int num_texture = 0;
 
@@ -58,6 +60,8 @@ int loadBitmap(char *filename)
 
 	free(l_texture);
 
+	printf("%d\n", num_texture);
+
 	return (num_texture);
 }
 
@@ -67,4 +71,6 @@ void initBitmaps() {
 	textureBrick = loadBitmap("textures/brick.bmp");
 	textureDomeBaseUpper = loadBitmap("textures/dome_base_upper.bmp");
 	textureWall = loadBitmap("textures/wall.bmp");
+	textureWhiteFloor = loadBitmap("textures/whiteFloor.bmp");
+	textureRedFloor = loadBitmap("textures/redFloor.bmp");
 }

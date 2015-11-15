@@ -796,25 +796,25 @@ void drawFloors()
 {
 	Point p;
 	p = getPoint(-2000,-1300,-285);
-	drawCube(p,4400,4400,25,WHITE,SOLID);
+	drawCube(p,4400,4400,25,WHITE,textureWhiteFloor);
 	//left side
 	p = getPoint(-2000,-1850,-285);
-	drawCube(p,4400,550,25,LIGHT_BRICK,SOLID);
+	drawCube(p,4400,550,25,LIGHT_BRICK,textureRedFloor);
 	p = getPoint(-2000,-4650,-285);
-	drawCube(p,4400,2350,25,LIGHT_BRICK,SOLID);
+	drawCube(p,4400,2350,25,LIGHT_BRICK,textureRedFloor);
 	p = getPoint(-2000,-2350,-285);
-	drawCube(p,1985,550,25,LIGHT_BRICK,SOLID);
+	drawCube(p,1985,550,25,LIGHT_BRICK,textureRedFloor);
 	p = getPoint(435,-2350,-285);
-	drawCube(p,1985,550,25,LIGHT_BRICK,SOLID);
+	drawCube(p,1985,550,25,LIGHT_BRICK,textureRedFloor);
 	//other side
 	p = getPoint(-2000,3100,-285);
-	drawCube(p,4400,550,25,LIGHT_BRICK,SOLID);
+	drawCube(p,4400,550,25,LIGHT_BRICK,textureRedFloor);
 	p = getPoint(-2000,4100,-285);
-	drawCube(p,4400,2350,25,LIGHT_BRICK,SOLID);
+	drawCube(p,4400,2350,25,LIGHT_BRICK,textureRedFloor);
 	p = getPoint(-2000,3600,-285);
-	drawCube(p,1985,550,25,LIGHT_BRICK,SOLID);
+	drawCube(p,1985,550,25,LIGHT_BRICK,textureRedFloor);
 	p = getPoint(435,3600,-285);
-	drawCube(p,1985,550,25,LIGHT_BRICK,SOLID);
+	drawCube(p,1985,550,25,LIGHT_BRICK,textureRedFloor);
 	//water baths
 	p = getPoint(0,0,0);
 	glPushMatrix();

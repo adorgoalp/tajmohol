@@ -13,6 +13,8 @@ double diffuseLightAngleDelta = 0.1;
 double diffuseLightRadius = 5000;
 double diffuseLightHeight = 2000;
 
+bool colorMaterialEnabled = true;
+
 void setLightMode(char mode) {
 	GLfloat dayAmbient[] = { 0.60, 0.60, 0.55, 0.0 }; 
 	GLfloat nightAmbient[] = { .25, .25, .50, 0.0 }; 
@@ -32,6 +34,17 @@ void toggleLightMode() {
 		lightMode = 'd';
 
 	setLightMode(lightMode);
+}
+
+void toggleColorMaterial() {
+	if (colorMaterialEnabled) {
+		glDisable(GL_COLOR_MATERIAL);
+		colorMaterialEnabled = false;
+	}
+	else {
+		glEnable(GL_COLOR_MATERIAL);
+		colorMaterialEnabled = true;
+	}
 }
 
 void toggleDiffuseLightColor() {
